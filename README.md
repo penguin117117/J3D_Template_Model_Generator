@@ -17,7 +17,7 @@ http://mariogalaxy2hack.wiki.fc2.com/wiki/pyKCLCreate
 ホワイトホール 
 https://github.com/SunakazeKun
 
-BTKテンプレート
+BTKテンプレート　
 同梱
 
 ---動作に必要なソフト---
