@@ -15,7 +15,7 @@ http://mariogalaxy2hack.wiki.fc2.com/wiki/arcTools
 http://mariogalaxy2hack.wiki.fc2.com/wiki/pyKCLCreate
 
 ホワイトホール 
-http://mariogalaxy2hack.wiki.fc2.com/wiki/Whitehole
+https://github.com/SunakazeKun
 
 BTKテンプレート
 下記ディスコードに参加してダウンロードしてください。
