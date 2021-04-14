@@ -18,7 +18,7 @@ http://mariogalaxy2hack.wiki.fc2.com/wiki/pyKCLCreate
 https://github.com/SunakazeKun
 
 BTKテンプレート
-下記ディスコードに参加してダウンロードしてください。
+同梱
 
 ---動作に必要なソフト---
 
