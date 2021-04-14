@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="J3D_Template_Model_Generator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="設定" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\</Value>
+    </Setting>
+    <Setting Name="expath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SuperBMD.exe ..\FBX\TestWaterPlanet.fbx ..\Model\TestWaterPlanet.bdl --rotate --bdl --mat ..\BTK\Water_Temp\Water_Temp_materials.json --texheader ..\BTK\Water_Temp\Water_Temp_tex_headers.json</Value>
+    </Setting>
+    <Setting Name="inpath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
