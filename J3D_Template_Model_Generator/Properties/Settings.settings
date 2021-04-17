@@ -8,8 +8,8 @@
     <Setting Name="expath" Type="System.String" Scope="User">
       <Value Profile="(Default)">SuperBMD.exe ..\FBX\TestWaterPlanet.fbx ..\Model\TestWaterPlanet.bdl --rotate --bdl --mat ..\BTK\Water_Temp\Water_Temp_materials.json --texheader ..\BTK\Water_Temp\Water_Temp_tex_headers.json</Value>
     </Setting>
-    <Setting Name="inpath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="LangageType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">JP</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -70,6 +70,15 @@ namespace J3D_Template_Model_Generator.Properties {
         }
         
         /// <summary>
+        ///   JP に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string langtype {
+            get {
+                return ResourceManager.GetString("langtype", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   C:\J3D_Template_Model_Generator に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string UserPath {

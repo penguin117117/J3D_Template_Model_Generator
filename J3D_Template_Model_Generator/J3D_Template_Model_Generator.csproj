@@ -7,7 +7,7 @@
     <ProjectGuid>{F976A7E1-3E88-4151-ACFE-CEE260B4E6A9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>J3D_Template_Model_Generator</RootNamespace>
-    <AssemblyName>J3D_Template_Model_Generator_Ver0.5.4.1</AssemblyName>
+    <AssemblyName>J3D_Template_Model_Generator_Ver0.5.5.0</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -27,7 +27,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\J3D_Template_Model_Generator_Ver0.5.4.1\</OutputPath>
+    <OutputPath>bin\Release\J3D_Template_Model_Generator_Ver0.5.5.0\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="FileSys\External_File_Executor.cs" />
     <Compile Include="FileSys\FolderCreate.cs" />
+    <Compile Include="FileSys\Language.cs" />
     <Compile Include="FileSys\Message.cs" />
     <Compile Include="FileSys\Select_File_Folder.cs" />
     <Compile Include="Form1.cs">
@@ -58,6 +59,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

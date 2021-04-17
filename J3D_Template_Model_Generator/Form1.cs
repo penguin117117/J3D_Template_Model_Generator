@@ -70,10 +70,25 @@ namespace J3D_Template_Model_Generator
             label2.Text = Properties.Settings.Default.設定;
             mainfilePath =Properties.Settings.Default.設定 + "J3D_Template_Model_Generator";
 
-            
+
+            switch (Properties.Settings.Default.LangageType)
+            {
+                case "JP":
+                    Language.JP();
+                    comboBox3.SelectedIndex = 0;
+                    Properties.Settings.Default.LangageType = "JP";
+                    break;
+                case "EN":
+                    Language.EN();
+                    comboBox3.SelectedIndex = 1;
+                    Properties.Settings.Default.LangageType = "EN";
+                    break;
+                default:
+                    break;
+            }
+
             
 
-         
             //作業フォルダチェック＆作成処理
             if (Directory.Exists(mainfilePath)==false){
                 //フォルダ作成許可下記if文で分岐
@@ -97,7 +112,7 @@ namespace J3D_Template_Model_Generator
                         
                     }
                     else {
-                        MessageBox.Show("以前のフォルダが存在したので"+"\n\r"+"そのディレクトリを使用します"+"\n\r"+"次にアップデートなどで"+"\n\r"+"足りないフォルダを作成します", "作成しませんでした", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        mes.sysmes(4);
                     }
 
                 }
@@ -110,6 +125,9 @@ namespace J3D_Template_Model_Generator
                 mes.sysmes(1);
 
             }
+
+
+            
         }
 
         
@@ -231,7 +249,14 @@ namespace J3D_Template_Model_Generator
                 else
                 {
                     //ユーザー定義のmateriar_jsonとtexheader_jsonがない場合の処理
-                    MessageBox.Show(userjson + user_materiar_json + "\n\rまたは\n\r" + userjson + user_texheader_json + "\n\rが見つかりませんでした", "作業説明", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Properties.Settings.Default.LangageType == "JP")
+                    {
+                        MessageBox.Show(userjson + user_materiar_json + "\n\rまたは\n\r" + userjson + user_texheader_json + "\n\rが見つかりませんでした", "ファイルが見つかりません", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else 
+                    {
+                        MessageBox.Show(userjson + user_materiar_json + "\n\ror\n\r" + userjson + user_texheader_json + "\n\rwas not found", "file not found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     return;
                 }
             }
@@ -257,10 +282,10 @@ namespace J3D_Template_Model_Generator
 
             //エラーのない場合下記を実行
             if (btktype[comboBox1.SelectedIndex] != "None"){
-                    MessageBox.Show("J3Dviewで各テクスチャの" + "\n\r" + "Unknown2の項目を" + "\n\r" + "「255」→「0」にしてください", "作業説明", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mes.sysmes(4);
             }
             else {
-                    MessageBox.Show("BTKファイルなどを使用しませんでした" + "\n\r" + "モデルが正しく表示されているか確認してください" + "\n\r" + "必要ない場合j3dviewを閉じてください", "作業説明", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mes.sysmes(5);
             }
 
             //J3D_Viewの実行エラー時は中断
@@ -325,7 +350,7 @@ namespace J3D_Template_Model_Generator
             }
             else
             {
-                MessageBox.Show(textBox1.Text + ".objまたは"+"\n\r"+textBox1.Text+".mtl"+"がありません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mes.sysmes(6);
             }
 
 
@@ -341,7 +366,7 @@ namespace J3D_Template_Model_Generator
                 }
                 else 
                 {
-                    MessageBox.Show(textBox1.Text + ".kclファイルがありません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mes.sysmes(7);
                 }
 
                 if (File.Exists(User_Root + @"OBJ\" + textBox1.Text + @".pa") == true) {
@@ -351,7 +376,7 @@ namespace J3D_Template_Model_Generator
                 }
                 else
                 {
-                    MessageBox.Show(textBox1.Text + ".paファイルがありません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mes.sysmes(8);
                 }
             
         }
@@ -365,11 +390,15 @@ namespace J3D_Template_Model_Generator
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string NoTmp;
+            if (Properties.Settings.Default.LangageType=="JP") { NoTmp = "なし"; } else { NoTmp = "None"; }
+             
+
             string LavaTmp = "Lava00_v";
             string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat";
             string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
 
-            string[] Materials = {"なし", LavaTmp, WaterTmp , WaterFallTmp };
+            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterFallTmp };
             textBox2.Text = Materials[comboBox1.SelectedIndex];
         }
 
@@ -425,11 +454,23 @@ namespace J3D_Template_Model_Generator
             mainfilePath = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
             string userjson =  @"User_json\" + textBox1.Text;
             if (Directory.Exists(mainfilePath + userjson)==false) {
-                if (MessageBox.Show(mainfilePath + userjson + "\n\rフォルダと"+ userjson + @"\Mix_json"+ "\n\rフォルダを作成しますか？", "フォルダを作成します", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (Properties.Settings.Default.LangageType == "JP")
                 {
-                    fc.Set_New_Folder(userjson);
-                    fc.Set_New_Folder(userjson + @"\Mix_json");
-                    MessageBox.Show(mainfilePath + userjson + "\n\rフォルダを作成しました\n\r" + textBox1.Text + ".jsonファイル(mat,tex_header)を\n\rフォルダに入れてください", "案内", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (MessageBox.Show(mainfilePath + userjson + "\n\rフォルダと" + userjson + @"\Mix_json" + "\n\rフォルダを作成しますか？", "フォルダを作成します", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        fc.Set_New_Folder(userjson);
+                        fc.Set_New_Folder(userjson + @"\Mix_json");
+                        MessageBox.Show(mainfilePath + userjson + "\n\rフォルダを作成しました\n\r" + textBox1.Text + ".jsonファイル(mat,tex_headerおよび画像ファイル)を\n\rフォルダに入れてください", "案内", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else 
+                {
+                    if (MessageBox.Show("Do you want to create\r\n" + mainfilePath + userjson + "\n\rfolders and" + userjson + @"\Mix_json" + "\n\rfolders? ", "Confirm folder creation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        fc.Set_New_Folder(userjson);
+                        fc.Set_New_Folder(userjson + @"\Mix_json");
+                        MessageBox.Show("Created\r\n"+mainfilePath + userjson + " folder!!\n\rPut The\n\r" + textBox1.Text + ".json Files(mat,tex_header and need Textures)\n\rin a folder", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
 
@@ -439,5 +480,60 @@ namespace J3D_Template_Model_Generator
         {
 
         }
+
+        private void comboBox3_SelectedValueChanged(object sender, EventArgs e)
+        {
+            switch (comboBox3.Text)
+            {
+                case "JP":
+                Language.JP();
+                    Properties.Settings.Default.LangageType = "JP";
+                    Properties.Settings.Default.Save();
+                    break;
+                case "EN":
+                    Language.EN();
+                    Properties.Settings.Default.LangageType = "EN";
+                    Properties.Settings.Default.Save();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void 開くToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+                
+                    //ユーザーにフォルダ作成位置を決めるか選ばせる
+                    DialogResult user_path = mes.sysmes(2);
+                    if (user_path == DialogResult.Yes)
+                    {
+                        //Settingsの設定を書き換え
+                        Properties.Settings.Default.設定 = sff.Folder_Select();
+                        mainfilePath = Properties.Settings.Default.設定;
+                        label2.Text = Properties.Settings.Default.設定;
+                        //Settingsの設定を保存
+                        Properties.Settings.Default.Save();
+
+                    }
+
+                    //指定したディレクトリにフォルダがないかの最終確認
+                    if (Directory.Exists(mainfilePath + "J3D_Template_Model_Generator") == false)
+                    {
+
+                    }
+                    else
+                    {
+                        mes.sysmes(3);
+                    }
+
+                
+
+                //フォルダの作成&チェック
+                fc.Set_Folder();
+                mes.sysmes(1);
+
+            }
+        
     }
 }
