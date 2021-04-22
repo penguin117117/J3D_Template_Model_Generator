@@ -1,5 +1,5 @@
 # J3D_Template_Model_Generator
-.. image:: https://img.shields.io/github/downloads/penguin117117/J3D_Template_Model_Generator/total   :alt: GitHub all releases
+<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/penguin117117/J3D_Template_Model_Generator/total">
 SMGのモデリングを手助けするGUIツール
 このプログラムの動作には以下の物が必要です。
 
