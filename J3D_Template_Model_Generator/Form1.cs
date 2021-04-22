@@ -10,10 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Resources;
 using System.Diagnostics;
-
 using System.Collections.ObjectModel;
 using J3D_Template_Model_Generator.FileSys;
-
 using fc = J3D_Template_Model_Generator.FileSys.FolderCreate;
 using mes = J3D_Template_Model_Generator.FileSys.Message;
 using sff = J3D_Template_Model_Generator.FileSys.Select_File_Folder;
@@ -23,9 +21,6 @@ using env = System.Environment;
 
 namespace J3D_Template_Model_Generator
 {
-    
-
-
     public partial class Form1 : Form
     {
         public string mainfilePath = "";
@@ -35,8 +30,6 @@ namespace J3D_Template_Model_Generator
         {
             InitializeComponent();
         }
-
-
 
         //インスタンスの作成
         private static Form1 _form1Instance;
@@ -52,8 +45,6 @@ namespace J3D_Template_Model_Generator
             }
         }
 
-        
-
         //フォームがロードされる際に実行される処理
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -61,9 +52,7 @@ namespace J3D_Template_Model_Generator
             Form1 f = new Form1();
             //Form1Instanceに代入
             Form1.Form1Instance = f;
-            //Form1の表示
-            //f.Show();
-
+            
             Form1.Form1Instance = this;
             comboBox2.Enabled = false;
             checkBox1.Checked = true;
@@ -71,7 +60,6 @@ namespace J3D_Template_Model_Generator
             if (setpath.Substring(setpath.Length-1,1)!="\\") 
             {
                 setpath += "\\";
-                //label2.Text = setpath;
             }
             label2.Text = setpath;
             mainfilePath = setpath + "J3D_Template_Model_Generator";
@@ -93,7 +81,6 @@ namespace J3D_Template_Model_Generator
                         if (setpath.Substring(setpath.Length - 1, 1) != "\\")
                         {
                             setpath += "\\";
-                            //label2.Text = setpath;
                         }
                         label2.Text = setpath;
                         mainfilePath = setpath + "J3D_Template_Model_Generator";
@@ -139,8 +126,6 @@ namespace J3D_Template_Model_Generator
             string fbxname = @" ..\FBX\" + textBox1.Text + ".fbx";
             string bdlname = @" ..\BDL_BMD\" + textBox1.Text + ".bdl";
             string comand1 = @" --rotate --bdl";
-
-            string bdlfull_path = @"BDL_BMD\" + textBox1.Text + ".bdl";
 
             string btk_mat_path = "BTK" + btkcomb + btkcomb + "_materials.json";
             string btk_tex_path = "BTK" + btkcomb + btkcomb + "_tex_headers.json";
