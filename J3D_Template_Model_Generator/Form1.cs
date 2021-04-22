@@ -67,28 +67,17 @@ namespace J3D_Template_Model_Generator
             Form1.Form1Instance = this;
             comboBox2.Enabled = false;
             checkBox1.Checked = true;
-            label2.Text = Properties.Settings.Default.設定;
-            mainfilePath =Properties.Settings.Default.設定 + "J3D_Template_Model_Generator";
-
-
-            switch (Properties.Settings.Default.LangageType)
+            string setpath = Properties.Settings.Default.設定;
+            if (setpath.Substring(setpath.Length-1,1)!="\\") 
             {
-                case "JP":
-                    Language.JP();
-                    comboBox3.SelectedIndex = 0;
-                    Properties.Settings.Default.LangageType = "JP";
-                    break;
-                case "EN":
-                    Language.EN();
-                    comboBox3.SelectedIndex = 1;
-                    Properties.Settings.Default.LangageType = "EN";
-                    break;
-                default:
-                    break;
+                setpath += "\\";
+                //label2.Text = setpath;
             }
+            label2.Text = setpath;
+            mainfilePath = setpath + "J3D_Template_Model_Generator";
 
+            Language.Form1_Translater();
             
-
             //作業フォルダチェック＆作成処理
             if (Directory.Exists(mainfilePath)==false){
                 //フォルダ作成許可下記if文で分岐
@@ -100,8 +89,15 @@ namespace J3D_Template_Model_Generator
                     if (user_path == DialogResult.Yes){
                         //Settingsの設定を書き換え
                         Properties.Settings.Default.設定 = sff.Folder_Select();
-                        mainfilePath = Properties.Settings.Default.設定;
-                        label2.Text = Properties.Settings.Default.設定;
+                        setpath = Properties.Settings.Default.設定;
+                        if (setpath.Substring(setpath.Length - 1, 1) != "\\")
+                        {
+                            setpath += "\\";
+                            //label2.Text = setpath;
+                        }
+                        label2.Text = setpath;
+                        mainfilePath = setpath + "J3D_Template_Model_Generator";
+                        Properties.Settings.Default.設定 = setpath;
                         //Settingsの設定を保存
                         Properties.Settings.Default.Save();
                         
@@ -135,9 +131,6 @@ namespace J3D_Template_Model_Generator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-
-
             //ファイルパス変数相対
             string btkcomb = @"\" + btktype[comboBox1.SelectedIndex];
             string brkcomb = @"\" + brktype[comboBox2.SelectedIndex];
@@ -146,6 +139,8 @@ namespace J3D_Template_Model_Generator
             string fbxname = @" ..\FBX\" + textBox1.Text + ".fbx";
             string bdlname = @" ..\BDL_BMD\" + textBox1.Text + ".bdl";
             string comand1 = @" --rotate --bdl";
+
+            string bdlfull_path = @"BDL_BMD\" + textBox1.Text + ".bdl";
 
             string btk_mat_path = "BTK" + btkcomb + btkcomb + "_materials.json";
             string btk_tex_path = "BTK" + btkcomb + btkcomb + "_tex_headers.json";
@@ -157,8 +152,6 @@ namespace J3D_Template_Model_Generator
             string brktemp = @" --mat" + rootfolder + brk_mat_path;
             brktemp += @" --texheader" + rootfolder + brk_tex_path;
 
-            //btktemp += btktype[comboBox1.SelectedIndex] + "\\" + btktype[comboBox1.SelectedIndex] + "_materials.json --texheader";
-            //btktemp += rootfolder + "BTK" + "\\" + btktype[comboBox1.SelectedIndex] + "\\" + btktype[comboBox1.SelectedIndex] + "_tex_headers.json";
             string cmdpath;
 
             //ファイルパス変数絶対
@@ -242,14 +235,14 @@ namespace J3D_Template_Model_Generator
 
                         //SuperBMDのコマンドをユーザー定義のjsonファイルに指定
                         cmdpath = fbxname + bdlname + comand1;
-                        cmdpath += (@" --mat" + root_user_json +  user_materiar_json);
+                        cmdpath += (@" --mat" + root_user_json + user_materiar_json);
                         cmdpath += (@" --texheader" + root_user_json + user_texheader_json);
                     }
                 }
                 else
                 {
                     //ユーザー定義のmateriar_jsonとtexheader_jsonがない場合の処理
-                    if (Properties.Settings.Default.LangageType == "JP")
+                    if (Properties.Settings.Default.LangageType == "日本語")
                     {
                         MessageBox.Show(userjson + user_materiar_json + "\n\rまたは\n\r" + userjson + user_texheader_json + "\n\rが見つかりませんでした", "ファイルが見つかりません", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -264,7 +257,7 @@ namespace J3D_Template_Model_Generator
                 //ユーザー定義のjsonファイルを使用しない場合
 
                 //SuperBMDのコマンド生成BTKを使うか使わないか
-                if ((btkcomb != "None"))
+                if (((btktype[comboBox1.SelectedIndex] != "None")))
                 {
 
                     cmdpath = fbxname + bdlname + comand1 + btktemp;
@@ -391,7 +384,7 @@ namespace J3D_Template_Model_Generator
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string NoTmp;
-            if (Properties.Settings.Default.LangageType=="JP") { NoTmp = "なし"; } else { NoTmp = "None"; }
+            if (Properties.Settings.Default.LangageType=="日本語") { NoTmp = "なし"; } else { NoTmp = "None"; }
              
 
             string LavaTmp = "Lava00_v";
@@ -454,7 +447,7 @@ namespace J3D_Template_Model_Generator
             mainfilePath = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
             string userjson =  @"User_json\" + textBox1.Text;
             if (Directory.Exists(mainfilePath + userjson)==false) {
-                if (Properties.Settings.Default.LangageType == "JP")
+                if (Properties.Settings.Default.LangageType == "日本語")
                 {
                     if (MessageBox.Show(mainfilePath + userjson + "\n\rフォルダと" + userjson + @"\Mix_json" + "\n\rフォルダを作成しますか？", "フォルダを作成します", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
@@ -483,21 +476,7 @@ namespace J3D_Template_Model_Generator
 
         private void comboBox3_SelectedValueChanged(object sender, EventArgs e)
         {
-            switch (comboBox3.Text)
-            {
-                case "JP":
-                Language.JP();
-                    Properties.Settings.Default.LangageType = "JP";
-                    Properties.Settings.Default.Save();
-                    break;
-                case "EN":
-                    Language.EN();
-                    Properties.Settings.Default.LangageType = "EN";
-                    Properties.Settings.Default.Save();
-                    break;
-                default:
-                    break;
-            }
+            Language.Form1_Translater(true);
         }
 
         private void 開くToolStripMenuItem_Click(object sender, EventArgs e)
@@ -510,10 +489,17 @@ namespace J3D_Template_Model_Generator
                     {
                         //Settingsの設定を書き換え
                         Properties.Settings.Default.設定 = sff.Folder_Select();
-                        mainfilePath = Properties.Settings.Default.設定;
-                        label2.Text = Properties.Settings.Default.設定;
-                        //Settingsの設定を保存
-                        Properties.Settings.Default.Save();
+                        string setpath = Properties.Settings.Default.設定;
+                        if (setpath.Substring(setpath.Length-1, 1) != "\\")
+                        {
+                            setpath += "\\";
+                            //label2.Text = setpath;
+                        }
+                            label2.Text = setpath;
+                            mainfilePath = setpath + "J3D_Template_Model_Generator";
+                            Properties.Settings.Default.設定 = setpath;
+                            //Settingsの設定を保存
+                            Properties.Settings.Default.Save();
 
                     }
 

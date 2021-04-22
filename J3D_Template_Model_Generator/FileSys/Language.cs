@@ -36,8 +36,35 @@ namespace J3D_Template_Model_Generator.FileSys
         public static CheckBox cb2 = Form1.Form1Instance.checkBox2;
         public static CheckBox cb3 = Form1.Form1Instance.checkBox3;
         public static ComboBox com1 = Form1.Form1Instance.comboBox1;
+        public static ComboBox com2 = Form1.Form1Instance.comboBox2;
+        public static ComboBox com3 = Form1.Form1Instance.comboBox3;
 
         public static TextBox tx2 = Form1.Form1Instance.textBox2;
+
+        public static void Form1_Translater(bool com = false) 
+        {
+            if (com)Properties.Settings.Default.LangageType = com3.Text ;
+
+            switch (Properties.Settings.Default.LangageType)
+            {
+                case "日本語":
+                    JP();
+                    com3.SelectedIndex = 0;
+                    Properties.Settings.Default.LangageType = "日本語";
+                    Properties.Settings.Default.Save();
+                    break;
+                case "EN":
+                    EN();
+                    com3.SelectedIndex = 1;
+                    Properties.Settings.Default.LangageType = "EN";
+                    Properties.Settings.Default.Save();
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+
         public static void JP() 
         {
             tsfile.Text = "ファイル";
@@ -55,7 +82,7 @@ namespace J3D_Template_Model_Generator.FileSys
             CMD_Error.Text = "CMDエラーメッセージ";
             BDL_Button.Text = "BDLファイルを生成";
             ARC_Button.Text = "ARC圧縮";
-            Col_Button.Text = "コリジョンファイルを生成";
+            Col_Button.Text = "コリジョンファイル生成";
             Wh_Button.Text = "ホワイトホール起動";
             cb2.Text = "CMDも起動";
             cb3.Text = "任意のjsonを追加(上級者向け)";

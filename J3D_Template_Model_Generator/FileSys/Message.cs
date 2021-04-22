@@ -12,7 +12,7 @@ namespace J3D_Template_Model_Generator.FileSys
         public static TextBox tx1 = Form1.Form1Instance.textBox1;
         public static DialogResult sysmes(short Message_Type =0) {
             DialogResult result = DialogResult.No;
-            if (Properties.Settings.Default.LangageType == "JP")
+            if (Properties.Settings.Default.LangageType == "日本語")
             {
                 switch (Message_Type)
                 {

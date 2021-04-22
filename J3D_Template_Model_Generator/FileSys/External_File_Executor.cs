@@ -17,13 +17,20 @@ namespace J3D_Template_Model_Generator.FileSys
         //Form1のtextbox3のModifireをpublicにしてForm1インスタンスを作成しないと使えない
         public static System.Windows.Forms.TextBox txt3 = Form1.Form1Instance.textBox3;
         public static System.Windows.Forms.ToolStripStatusLabel tssl2 = Form1.Form1Instance.toolStripStatusLabel2;
-        public static string[] Tool_Names =   { "SuperBMD.exe", "J3DView.exe", @"res\arcPack.exe", @"res\yaz0enc.exe", "collision_creator.exe", "javaw" };
+        public static string[] Tool_Names =   { "SuperBMD.exe", "j3dview.exe", @"res\arcPack.exe", @"res\yaz0enc.exe", "collision_creator.exe", "javaw" };
         public static string[] Tool_F_Names = { "SuperBMD"    , "J3D_View"   , "ARC_Tool"        , "ARC_Tool"        , "Collision_Tool"       , "Whitehole" };
 
 
 
 
-        public static int  File_Executor(short exenum ,string arg) {
+        /// <summary>
+        /// 外部ファイル実行クラス
+        /// <remarks>File_Executor(実行ファイル番号、処理コマンド)</remarks>
+        /// <br/>
+        /// 実行ﾌｧｲﾙ番号：0 SuperBMD :1 J3DView :3 ARCTool 以降:Tool_Names[]参照
+        /// </summary>
+        /// 
+        public static int  File_Executor(short exenum ,string argpath) {
             string User_Root = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
             string ErrorCMD;
             string OutputCMD;
@@ -34,8 +41,8 @@ namespace J3D_Template_Model_Generator.FileSys
             tssl2.Text = "";
             Form1.Form1Instance.Height = 384;
 
-            if (exenum != 5)
-            {
+            //if (exenum != 5)
+            //{
 
                 if (File.Exists(exepath) == false)
                 {
@@ -49,23 +56,24 @@ namespace J3D_Template_Model_Generator.FileSys
                         return 1;
                     }
                 }
-            }
-            else {
-                exepath = Tool_Names[exenum];
+            //}
+            //else {
+            //    exepath = Tool_Names[exenum];
 
 
-            }
-
+            //}
             //ステータスバーの設定とフォームの非アクティブ化
             tssl2.Text = Tool_Names[exenum]+"を開いています";
             Form1.Form1Instance.Enabled = false;
 
-
+            //クラスインスタンス
             ProcessStartInfo psi = new ProcessStartInfo();
+
+            //プロセス実行
             psi.FileName = exepath;
             psi.WorkingDirectory = CDpath;
-            psi.Arguments = arg;
-            psi.UseShellExecute = false;
+            psi.Arguments = argpath;
+            psi.UseShellExecute = false ;
             psi.RedirectStandardError = true;
             psi.RedirectStandardInput = true;
             psi.RedirectStandardOutput = true;
@@ -74,24 +82,29 @@ namespace J3D_Template_Model_Generator.FileSys
             OutputCMD = p.StandardOutput.ReadToEnd();
             p.WaitForExit();
             
+            //エラーが出たかを確認
             if (p.ExitCode != 0)
             {
-                //ステータスバー
+                //ステータスバーの設定とフォームのアクティブ化
                 tssl2.Text = "";
                 Form1.Form1Instance.Enabled = true;
                 tssl2.Text = Tool_Names[exenum] + "でエラーが発生しました";
                 tssl2.ForeColor = Color.Red;
+
+                //CMDのエラーメッセージを表示する
                 txt3.Text = "下記アウトプット" + env.NewLine + OutputCMD;
                 txt3.AppendText(env.NewLine + "下記エラーログ" + env.NewLine + ErrorCMD);
-                //textBox2.Text = InputCMD;
+
+                //フォームの長さを伸ばす
                 Form1.Form1Instance.Height = 590;
                 
             }
 
 
 
-            //ステータスバー
-            tssl2.Text = "";
+            //ステータスバーの設定とフォームのアクティブ化
+            tssl2.Text = Path.GetFileName(Tool_Names[exenum]) + "が正常終了";
+            tssl2.ForeColor = Color.Green;
             Form1.Form1Instance.Enabled = true;
             return p.ExitCode;
         }

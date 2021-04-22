@@ -87,7 +87,7 @@
             // 開くToolStripMenuItem
             // 
             this.開くToolStripMenuItem.Name = "開くToolStripMenuItem";
-            this.開くToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.開くToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.開くToolStripMenuItem.Text = "開く";
             this.開くToolStripMenuItem.Click += new System.EventHandler(this.開くToolStripMenuItem_Click);
             // 
@@ -198,13 +198,13 @@
             // 
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
-            "JP",
+            "日本語",
             "EN"});
             this.comboBox3.Location = new System.Drawing.Point(362, 20);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(63, 20);
             this.comboBox3.TabIndex = 17;
-            this.comboBox3.Text = "JP";
+            this.comboBox3.Text = "日本語";
             this.comboBox3.SelectedValueChanged += new System.EventHandler(this.comboBox3_SelectedValueChanged);
             // 
             // comboBox2
@@ -408,7 +408,6 @@
         public System.Windows.Forms.TextBox textBox3;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox3;
         public System.Windows.Forms.MenuStrip menuStrip1;
         public System.Windows.Forms.ToolStripMenuItem ファイルToolStripMenuItem;
         public System.Windows.Forms.StatusStrip statusStrip1;
@@ -436,6 +435,7 @@
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.TextBox textBox2;
         public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.ComboBox comboBox3;
     }
 }
 
