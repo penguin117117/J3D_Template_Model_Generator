@@ -20,7 +20,7 @@ https://github.com/SunakazeKun
 BTKテンプレート　
 同梱
 
----動作に必要なソフト---
+# 動作に必要なソフト
 
 PyQT5またはPyQT4(コリジョンツールなどの起動に必要)
 
@@ -29,3 +29,7 @@ http://mariogalaxy2hack.wiki.fc2.com/wiki/PyQt5%EF%BC%8CPython3.9%E3%81%AE%E5%B0
 JDK(ホワイトホール起動に必要)
 
 https://mariogalaxy2hack.wiki.fc2.com/wiki/JDK15%E3%81%AE%E5%B0%8E%E5%85%A5
+
+# 既知のバグ
+任意のフォルダ指定時に日本語フォルダ名を含むパスの場合
+J3Dviewが起動できませんので注意してください。
