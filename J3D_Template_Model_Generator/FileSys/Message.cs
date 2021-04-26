@@ -11,7 +11,8 @@ namespace J3D_Template_Model_Generator.FileSys
     {
         public static TextBox tx1 = Form1.Form1Instance.textBox1;
         public static DialogResult sysmes(short Message_Type =0) {
-            DialogResult result = DialogResult.No;
+            DialogResult result ;
+            Console.WriteLine(Properties.Settings.Default.LangageType);
             if (Properties.Settings.Default.LangageType == "日本語")
             {
                 switch (Message_Type)
@@ -25,7 +26,7 @@ namespace J3D_Template_Model_Generator.FileSys
                             MessageBox.Show("ReadMeに記載された必要な" + "\n\r" + "ファイルを準備してください", "作成しました", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     case 2:
                         return
-                            MessageBox.Show("任意の場所に" + "\n\r" + "作業フォルダを作成しますか？" + "\n\r" + "「いいえ」を推奨します" + "\n\r" + "以前の作業フォルダがある場合は「はい」を選択して" + "\n\r" + "以前選択したディレクトリを選択", "作成許可", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                            MessageBox.Show("任意の場所に" + "\n\r" + "作業フォルダを作成しますか？"  + "\n\r" + "以前の作業フォルダがある場合は「はい」を選択して" + "\n\r" + "以前選択したディレクトリを選択", "作成許可", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                     case 3:
                         return
                             MessageBox.Show("以前のフォルダが存在したので" + "\n\r" + "そのディレクトリを使用します" + "\n\r" + "次にアップデートなどで" + "\n\r" + "足りないフォルダを作成します", "作成しませんでした", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -45,7 +46,7 @@ namespace J3D_Template_Model_Generator.FileSys
                         return
                             MessageBox.Show(tx1.Text + ".paファイルがありません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     default:
-                        return result;
+                        return result　= DialogResult.No;
                 }
             }
             else if(Properties.Settings.Default.LangageType == "EN")
@@ -81,10 +82,10 @@ namespace J3D_Template_Model_Generator.FileSys
                         return
                             MessageBox.Show(tx1.Text + ".pa there is not", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     default:
-                        return result;
+                        return result = DialogResult.No;
                 }
             }
-            return result;
+            return result = DialogResult.No;
         }
     }
 }

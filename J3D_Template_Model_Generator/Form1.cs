@@ -50,67 +50,12 @@ namespace J3D_Template_Model_Generator
         {
             //Form1のインスタンスの作成
             Form1 f = new Form1();
-            //Form1Instanceに代入
             Form1.Form1Instance = f;
-            
             Form1.Form1Instance = this;
-            comboBox2.Enabled = false;
-            checkBox1.Checked = true;
-            string setpath = Properties.Settings.Default.設定;
-            if (setpath.Substring(setpath.Length-1,1)!="\\") 
-            {
-                setpath += "\\";
-            }
-            label2.Text = setpath;
-            mainfilePath = setpath + "J3D_Template_Model_Generator";
 
-            Language.Form1_Translater();
-            
-            //作業フォルダチェック＆作成処理
-            if (Directory.Exists(mainfilePath)==false){
-                //フォルダ作成許可下記if文で分岐
-                DialogResult result = mes.sysmes();
-                //何が選択されたか調べる
-                if (result == DialogResult.Yes){
-                    //ユーザーにフォルダ作成位置を決めるか選ばせる
-                    DialogResult user_path = mes.sysmes(2);
-                    if (user_path == DialogResult.Yes){
-                        //Settingsの設定を書き換え
-                        Properties.Settings.Default.設定 = sff.Folder_Select();
-                        setpath = Properties.Settings.Default.設定;
-                        if (setpath.Substring(setpath.Length - 1, 1) != "\\")
-                        {
-                            setpath += "\\";
-                        }
-                        label2.Text = setpath;
-                        mainfilePath = setpath + "J3D_Template_Model_Generator";
-                        Properties.Settings.Default.設定 = setpath;
-                        //Settingsの設定を保存
-                        Properties.Settings.Default.Save();
-                        
-                    }
-
-                    //指定したディレクトリにフォルダがないかの最終確認
-                    if (Directory.Exists(mainfilePath + "J3D_Template_Model_Generator") == false){
-                        
-                    }
-                    else {
-                        mes.sysmes(4);
-                    }
-
-                }
-                else if (result == DialogResult.No){
-                    this.Close();
-                }
-
-                //フォルダの作成&チェック
-                fc.Set_Folder();
-                mes.sysmes(1);
-
-            }
-
-
-            
+            //ファイルパスクラスのインスタンス作成
+            File_Path fp = new File_Path();
+            fp.Set("Load");
         }
 
         
@@ -466,45 +411,10 @@ namespace J3D_Template_Model_Generator
 
         private void 開くToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-                
-                    //ユーザーにフォルダ作成位置を決めるか選ばせる
-                    DialogResult user_path = mes.sysmes(2);
-                    if (user_path == DialogResult.Yes)
-                    {
-                        //Settingsの設定を書き換え
-                        Properties.Settings.Default.設定 = sff.Folder_Select();
-                        string setpath = Properties.Settings.Default.設定;
-                        if (setpath.Substring(setpath.Length-1, 1) != "\\")
-                        {
-                            setpath += "\\";
-                            //label2.Text = setpath;
-                        }
-                            label2.Text = setpath;
-                            mainfilePath = setpath + "J3D_Template_Model_Generator";
-                            Properties.Settings.Default.設定 = setpath;
-                            //Settingsの設定を保存
-                            Properties.Settings.Default.Save();
-
-                    }
-
-                    //指定したディレクトリにフォルダがないかの最終確認
-                    if (Directory.Exists(mainfilePath + "J3D_Template_Model_Generator") == false)
-                    {
-
-                    }
-                    else
-                    {
-                        mes.sysmes(3);
-                    }
-
-                
-
-                //フォルダの作成&チェック
-                fc.Set_Folder();
-                mes.sysmes(1);
-
-            }
+            //ファイルパスクラスのインスタンス作成
+            File_Path fs =new File_Path();
+            fs.Form1_Check_Create_Folder(false);
+        }
         
     }
 }

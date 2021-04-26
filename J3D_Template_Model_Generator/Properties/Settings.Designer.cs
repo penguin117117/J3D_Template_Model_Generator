@@ -51,7 +51,7 @@ namespace J3D_Template_Model_Generator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("JP")]
+        [global::System.Configuration.DefaultSettingValueAttribute("日本語")]
         public string LangageType {
             get {
                 return ((string)(this["LangageType"]));
