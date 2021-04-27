@@ -54,8 +54,8 @@ namespace J3D_Template_Model_Generator
             Form1.Form1Instance = this;
 
             //ファイルパスクラスのインスタンス作成
-            File_Path fp = new File_Path();
-            fp.Set("Load");
+            File_Path_Create_Working_Folder FPCW = new File_Path_Create_Working_Folder();
+            FPCW.Processing_Form1_Load();
         }
 
         
@@ -412,9 +412,14 @@ namespace J3D_Template_Model_Generator
         private void 開くToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //ファイルパスクラスのインスタンス作成
-            File_Path fs =new File_Path();
-            fs.Form1_Check_Create_Folder(false);
+            File_Path_Create_Working_Folder FPCW =new File_Path_Create_Working_Folder();
+            FPCW.Form1_Check_Create_Folder(false);
         }
-        
+
+        private void Debug_Click(object sender, EventArgs e)
+        {
+            File_Path_CMD_Path_And_Comand FPCPAC = new File_Path_CMD_Path_And_Comand();
+            FPCPAC.SuperBMD_Processing();
+        }
     }
 }
