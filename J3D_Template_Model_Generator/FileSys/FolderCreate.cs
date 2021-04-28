@@ -17,6 +17,7 @@ namespace J3D_Template_Model_Generator.FileSys
             //宣言
             string mainfilePath = Properties.Settings.Default.設定 + "\\" + "J3D_Template_Model_Generator";
 
+            Console.WriteLine(mainfilePath + "\\" + newsub);
             //処理
             if (Directory.Exists(mainfilePath + "\\" + newsub)==false)
             {
@@ -96,6 +97,20 @@ namespace J3D_Template_Model_Generator.FileSys
             
 
 
+        }
+
+        public static void Set_User_Json_Folder(string mainfilePath ,string userjson,string modelname) 
+        {
+            if (Directory.Exists( userjson) == false)
+            {
+                if (MessageBox.Show(mainfilePath + userjson + "\n\rフォルダと" + userjson + @"\Mix_json" + "\n\rフォルダを作成しますか？", "フォルダを作成します", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    Console.WriteLine(userjson);
+                    Set_New_Folder(userjson);
+                    Set_New_Folder(userjson + @"\Mix_json");
+                    MessageBox.Show(mainfilePath + userjson + "\n\rフォルダを作成しました\n\r" + modelname + ".jsonファイル(mat,tex_headerおよび画像ファイル)を\n\rフォルダに入れてください", "案内", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }

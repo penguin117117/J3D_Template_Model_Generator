@@ -10,7 +10,7 @@ namespace J3D_Template_Model_Generator.FileSys
     class Message
     {
         public static TextBox tx1 = Form1.Form1Instance.textBox1;
-        public static DialogResult sysmes(short Message_Type =0) {
+        public static DialogResult sysmes(short Message_Type =0 ,string a = "",string b ="") {
             DialogResult result ;
             Console.WriteLine(Properties.Settings.Default.LangageType);
             if (Properties.Settings.Default.LangageType == "日本語")
@@ -45,6 +45,9 @@ namespace J3D_Template_Model_Generator.FileSys
                     case 8:
                         return
                             MessageBox.Show(tx1.Text + ".paファイルがありません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    case 9:
+                        return
+                            MessageBox.Show( a + "\n\rフォルダと" + b + @"\Mix_json" + "\n\rフォルダを作成しますか？", "フォルダを作成します", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     default:
                         return result　= DialogResult.No;
                 }
@@ -81,6 +84,9 @@ namespace J3D_Template_Model_Generator.FileSys
                     case 8:
                         return
                             MessageBox.Show(tx1.Text + ".pa there is not", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    case 9:
+                        return
+                            MessageBox.Show("Do you want to create\r\n" + a + "\n\rfolders and" + b + @"\Mix_json" + "\n\rfolders? ", "Confirm folder creation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     default:
                         return result = DialogResult.No;
                 }
