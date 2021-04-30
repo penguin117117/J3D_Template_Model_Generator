@@ -63,156 +63,8 @@ namespace J3D_Template_Model_Generator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //ファイルパス変数相対
-            string btkcomb = @"\" + btktype[comboBox1.SelectedIndex];
-            string brkcomb = @"\" + brktype[comboBox2.SelectedIndex];
-            string rootfolder = @" ..\";
-
-            string fbxname = @" ..\FBX\" + textBox1.Text + ".fbx";
-            string bdlname = @" ..\BDL_BMD\" + textBox1.Text + ".bdl";
-            string comand1 = @" --rotate --bdl";
-
-            string btk_mat_path = "BTK" + btkcomb + btkcomb + "_materials.json";
-            string btk_tex_path = "BTK" + btkcomb + btkcomb + "_tex_headers.json";
-            string btktemp = @" --mat" + rootfolder + btk_mat_path;
-            btktemp += @" --texheader" + rootfolder + btk_tex_path;
-
-            string brk_mat_path = "BRK" + brkcomb + brkcomb + "_materials.json";
-            string brk_tex_path = "BRK" + brkcomb + brkcomb + "_tex_headers.json";
-            string brktemp = @" --mat" + rootfolder + brk_mat_path;
-            brktemp += @" --texheader" + rootfolder + brk_tex_path;
-
-            string cmdpath;
-
-            //ファイルパス変数絶対
-            mainfilePath = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
-            string tmp_btk_mat_json = mainfilePath + btk_mat_path;
-            string tmp_btk_tex_json = mainfilePath + btk_tex_path;
-            string tmp_btk_folder = mainfilePath + @"BTK" + btkcomb;
-
-            string userjson = @"User_json\" + textBox1.Text;
-            string root_user_json = rootfolder + userjson;
-            userjson = mainfilePath + userjson;
-
-            string mixjson =  userjson + @"\Mix_json";
-            string root_mixjson = root_user_json + @"\Mix_json";
-
-            string user_materiar_json = @"\" + textBox1.Text + @"_materials.json";
-            string user_texheader_json = @"\" + textBox1.Text + @"_tex_headers.json";
-
-            //ユーザー定義のjsonファイルを使用するかのチェック
-            if (checkBox3.Checked == true){
-                //ユーザー定義のmateriar_jsonとtexheader_jsonをユーザーが
-                //指定フォルダに作成しているかのチェック
-                if (File.Exists(userjson + user_materiar_json) && File.Exists(userjson + user_texheader_json))
-                {
-                    //ユーザー定義のmateriar_jsonとtexheader_jsonがある場合の処理
-
-                    //mat宣言
-                    string u_mat_json;
-                    string t_mat_json;
-                    string m_mat_json;
-                    //tex宣言
-                    string u_tex_json;
-                    string t_tex_json;
-                    string m_tex_json;
-
-                    //BTKテンプレートを使うかの判別
-                    if ((btktype[comboBox1.SelectedIndex] != "None")){
-                        //BTKテンプレートを使う場合の処理
-
-                        //mat 初期化
-                        u_mat_json = File.ReadAllText(userjson + user_materiar_json);
-                        t_mat_json = File.ReadAllText(tmp_btk_mat_json);
-                        //tex 初期化
-                        u_tex_json = File.ReadAllText(userjson + user_texheader_json);
-                        t_tex_json = File.ReadAllText(tmp_btk_tex_json);
-
-                        //コピー元のディレクトリにあるファイルをコピー
-                        string[] files = Directory.GetFiles(tmp_btk_folder);
-                        foreach (string file in files)
-                        {
-                            if (Path.GetExtension(file)!=".json") {
-                                File.Copy(file, mixjson +@"\"+ Path.GetFileName(file), true);
-                            }
-                        }
-
-                        //コピー元のディレクトリにあるファイルをコピー
-                        string[] ufiles = Directory.GetFiles(userjson);
-                        foreach (string ufile in ufiles)
-                        {
-                            if (Path.GetExtension(ufile) != ".json")
-                            {
-                                File.Copy(ufile, mixjson + @"\" + Path.GetFileName(ufile), true);
-                            }
-                        }
-
-                        //mat結合とファイルをMix_jsonに移動する
-                        m_mat_json = u_mat_json.Substring(0, (u_mat_json.Length) - 3);
-                        m_mat_json += ("," + t_mat_json.Substring(1, t_mat_json.Length - 1));
-                        File.WriteAllText(mixjson + user_materiar_json, m_mat_json);
-                        //tex結合
-                        m_tex_json = u_tex_json.Substring(0, (u_tex_json.Length) - 3);
-                        m_tex_json += ("," + t_tex_json.Substring(1, t_tex_json.Length - 1));
-                        File.WriteAllText(mixjson + user_texheader_json, m_tex_json);
-                        //SuperBMDのコマンドを指定
-                        cmdpath = fbxname + bdlname + comand1;
-                        cmdpath += (@" --mat" + root_mixjson +user_materiar_json);
-                        cmdpath += (@" --texheader" + root_mixjson + user_texheader_json);
-                    }
-                    else {
-                        //BTKテンプレートを使わない場合の処理
-
-                        //SuperBMDのコマンドをユーザー定義のjsonファイルに指定
-                        cmdpath = fbxname + bdlname + comand1;
-                        cmdpath += (@" --mat" + root_user_json + user_materiar_json);
-                        cmdpath += (@" --texheader" + root_user_json + user_texheader_json);
-                    }
-                }
-                else
-                {
-                    //ユーザー定義のmateriar_jsonとtexheader_jsonがない場合の処理
-                    if (Properties.Settings.Default.LangageType == "日本語")
-                    {
-                        MessageBox.Show(userjson + user_materiar_json + "\n\rまたは\n\r" + userjson + user_texheader_json + "\n\rが見つかりませんでした", "ファイルが見つかりません", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else 
-                    {
-                        MessageBox.Show(userjson + user_materiar_json + "\n\ror\n\r" + userjson + user_texheader_json + "\n\rwas not found", "file not found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    return;
-                }
-            }
-            else {
-                //ユーザー定義のjsonファイルを使用しない場合
-
-                //SuperBMDのコマンド生成BTKを使うか使わないか
-                if (((btktype[comboBox1.SelectedIndex] != "None")))
-                {
-
-                    cmdpath = fbxname + bdlname + comand1 + btktemp;
-                    
-                }
-                else
-                {
-                    cmdpath = fbxname + bdlname + comand1;
-                }
-
-            }
-
-            //SuperBMDの実行エラー時は中断
-            if (efe.File_Executor(0,cmdpath ) != 0) { return; }
-
-            //エラーのない場合下記を実行
-            if (btktype[comboBox1.SelectedIndex] != "None"){
-                mes.sysmes(4);
-            }
-            else {
-                mes.sysmes(5);
-            }
-
-            //J3D_Viewの実行エラー時は中断
-            if (efe.File_Executor(1, bdlname) != 0) { return; }
+            File_Path_CMD_Path_And_Comand FPCPAC = new File_Path_CMD_Path_And_Comand();
+            FPCPAC.SuperBMD_Processing();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -418,8 +270,7 @@ namespace J3D_Template_Model_Generator
 
         private void Debug_Click(object sender, EventArgs e)
         {
-            File_Path_CMD_Path_And_Comand FPCPAC = new File_Path_CMD_Path_And_Comand();
-            FPCPAC.SuperBMD_Processing();
+            
         }
     }
 }

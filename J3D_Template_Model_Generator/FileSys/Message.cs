@@ -11,7 +11,7 @@ namespace J3D_Template_Model_Generator.FileSys
     {
         public static TextBox tx1 = Form1.Form1Instance.textBox1;
         public static DialogResult sysmes(short Message_Type =0 ,string a = "",string b ="") {
-            DialogResult result ;
+            DialogResult result = DialogResult.No;
             Console.WriteLine(Properties.Settings.Default.LangageType);
             if (Properties.Settings.Default.LangageType == "日本語")
             {
@@ -48,6 +48,9 @@ namespace J3D_Template_Model_Generator.FileSys
                     case 9:
                         return
                             MessageBox.Show( a + "\n\rフォルダと" + b + @"\Mix_json" + "\n\rフォルダを作成しますか？", "フォルダを作成します", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    case 10:
+                        return
+                            MessageBox.Show(a + "\n\rまたは\n\r" + b + "\n\rが見つかりませんでした", "ファイルが見つかりません", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     default:
                         return result　= DialogResult.No;
                 }
@@ -87,6 +90,9 @@ namespace J3D_Template_Model_Generator.FileSys
                     case 9:
                         return
                             MessageBox.Show("Do you want to create\r\n" + a + "\n\rfolders and" + b + @"\Mix_json" + "\n\rfolders? ", "Confirm folder creation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    case 10:
+                        return
+                            MessageBox.Show(a + "\n\ror\n\r" + b + "\n\rwas not found", "file not found", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     default:
                         return result = DialogResult.No;
                 }
