@@ -56,6 +56,8 @@ namespace J3D_Template_Model_Generator
             //ファイルパスクラスのインスタンス作成
             File_Path_Create_Working_Folder FPCW = new File_Path_Create_Working_Folder();
             FPCW.Processing_Form1_Load();
+
+            Debug.Visible = false;
         }
 
         
