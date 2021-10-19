@@ -13,7 +13,7 @@ ARCTool
 http://mariogalaxy2hack.wiki.fc2.com/wiki/arcTools
 
 pyKCLCreate
-http://mariogalaxy2hack.wiki.fc2.com/wiki/pyKCLCreate
+https://github.com/gayfrogog/pyKCLCreate
 
 PyQT5 or PyQT4 (required for pyKCLCreate)
 
