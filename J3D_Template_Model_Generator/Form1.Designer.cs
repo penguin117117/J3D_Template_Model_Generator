@@ -157,18 +157,19 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Save Directory";
+            this.label1.Text = "Save Directory:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(96, 22);
+            this.label2.Location = new System.Drawing.Point(92, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 13);
+            this.label2.Size = new System.Drawing.Size(22, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "ファイルパスが指定されていません";
+            this.label2.Text = "C:\\";
             // 
             // groupBox1
             // 
