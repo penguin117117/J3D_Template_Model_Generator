@@ -43,7 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -59,7 +58,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.Debug = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -83,35 +81,35 @@
             this.開くToolStripMenuItem,
             this.保存ToolStripMenuItem});
             this.ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem";
-            this.ファイルToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.ファイルToolStripMenuItem.Text = "ファイル";
+            this.ファイルToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.ファイルToolStripMenuItem.Text = "File";
             // 
             // 開くToolStripMenuItem
             // 
             this.開くToolStripMenuItem.Name = "開くToolStripMenuItem";
-            this.開くToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.開くToolStripMenuItem.Text = "開く";
+            this.開くToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.開くToolStripMenuItem.Text = "Open";
             this.開くToolStripMenuItem.Click += new System.EventHandler(this.開くToolStripMenuItem_Click);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.保存ToolStripMenuItem.Text = "保存(未実装)";
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.保存ToolStripMenuItem.Text = "Save (not working atm)";
             // 
             // 編集ToolStripMenuItem
             // 
             this.編集ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.作業フォルダチェックToolStripMenuItem});
             this.編集ToolStripMenuItem.Name = "編集ToolStripMenuItem";
-            this.編集ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.編集ToolStripMenuItem.Text = "編集";
+            this.編集ToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.編集ToolStripMenuItem.Text = "Edit";
             // 
             // 作業フォルダチェックToolStripMenuItem
             // 
             this.作業フォルダチェックToolStripMenuItem.Name = "作業フォルダチェックToolStripMenuItem";
-            this.作業フォルダチェックToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.作業フォルダチェックToolStripMenuItem.Text = "作業フォルダチェック";
+            this.作業フォルダチェックToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.作業フォルダチェックToolStripMenuItem.Text = "Folder Check";
             this.作業フォルダチェックToolStripMenuItem.Click += new System.EventHandler(this.作業フォルダチェックToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
@@ -126,7 +124,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 559);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 532);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(465, 22);
             this.statusStrip1.TabIndex = 1;
@@ -135,8 +133,8 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(37, 17);
-            this.toolStripStatusLabel1.Text = "状態：";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel1.Text = "State：";
             // 
             // toolStripStatusLabel2
             // 
@@ -146,11 +144,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 269);
+            this.button1.Location = new System.Drawing.Point(12, 247);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 35);
             this.button1.TabIndex = 2;
-            this.button1.Text = "BDLファイルを生成";
+            this.button1.Text = "Generate BDL";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -159,9 +157,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "保存先";
+            this.label1.Text = "Save Directory";
             // 
             // label2
             // 
@@ -174,8 +172,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.comboBox3);
             this.groupBox1.Controls.Add(this.checkBox3);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textBox2);
@@ -187,28 +183,20 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(442, 233);
+            this.groupBox1.Size = new System.Drawing.Size(442, 200);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "設定";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(298, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Language ";
+            this.groupBox1.Text = "Setting";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(17, 191);
+            this.checkBox3.Location = new System.Drawing.Point(254, 175);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(176, 17);
+            this.checkBox3.Size = new System.Drawing.Size(172, 17);
             this.checkBox3.TabIndex = 12;
-            this.checkBox3.Text = "任意のjsonを追加(上級者向け)";
+            this.checkBox3.Text = "Add any .JSON file (advanced)";
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             this.checkBox3.CheckStateChanged += new System.EventHandler(this.checkBox3_CheckStateChanged);
@@ -218,26 +206,29 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(252, 48);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 13);
+            this.label6.Size = new System.Drawing.Size(80, 13);
             this.label6.TabIndex = 11;
-            this.label6.Text = "必要なマテリアル";
+            this.label6.Text = "Material Names";
             // 
             // textBox2
             // 
+            this.textBox2.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBox2.Location = new System.Drawing.Point(254, 67);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(171, 135);
+            this.textBox2.Size = new System.Drawing.Size(171, 102);
             this.textBox2.TabIndex = 10;
-            this.textBox2.Text = "なし";
+            this.textBox2.Text = "None";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 67);
+            this.textBox1.Location = new System.Drawing.Point(14, 67);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(203, 20);
             this.textBox1.TabIndex = 9;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label5
             // 
@@ -245,71 +236,77 @@
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label5.Location = new System.Drawing.Point(12, 38);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 24);
+            this.label5.Size = new System.Drawing.Size(183, 24);
             this.label5.TabIndex = 8;
-            this.label5.Text = "FBX,OBJ名";
+            this.label5.Text = "FBX/OBJ Names";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "",
-            "溶岩",
-            "水",
-            "滝"});
-            this.comboBox1.Location = new System.Drawing.Point(14, 120);
+            "None",
+            "Lava",
+            "Water (Blue)",
+            "Water (Clear)",
+            "Waterfall",
+            "Poison"});
+            this.comboBox1.Location = new System.Drawing.Point(14, 137);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(204, 32);
             this.comboBox1.TabIndex = 7;
-            this.comboBox1.Text = "Water";
+            this.comboBox1.Text = "None";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(11, 91);
+            this.label3.Location = new System.Drawing.Point(12, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 24);
             this.label3.TabIndex = 6;
             this.label3.Text = "BTK Settings";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(135, 269);
+            this.button3.Location = new System.Drawing.Point(133, 247);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(114, 35);
             this.button3.TabIndex = 10;
-            this.button3.Text = "コリジョンファイル生成";
+            this.button3.Text = "Generate Collision";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(135, 310);
+            this.button2.Location = new System.Drawing.Point(13, 288);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(114, 35);
             this.button2.TabIndex = 10;
-            this.button2.Text = "ARC圧縮";
+            this.button2.Text = "ARC Converter";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(267, 320);
+            this.checkBox1.Location = new System.Drawing.Point(265, 298);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(50, 17);
             this.checkBox1.TabIndex = 11;
             this.checkBox1.Text = "Yaz0";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 380);
+            this.textBox3.Location = new System.Drawing.Point(12, 350);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox3.Size = new System.Drawing.Size(442, 171);
             this.textBox3.TabIndex = 12;
@@ -317,30 +314,30 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 364);
+            this.label7.Location = new System.Drawing.Point(9, 334);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 13);
+            this.label7.Size = new System.Drawing.Size(102, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "CMDエラーメッセージ";
+            this.label7.Text = "CMD Error Message";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(12, 310);
+            this.button4.Location = new System.Drawing.Point(133, 288);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(114, 35);
             this.button4.TabIndex = 14;
-            this.button4.Text = "ホワイトホール起動";
+            this.button4.Text = "Open Whitehole";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(266, 279);
+            this.checkBox2.Location = new System.Drawing.Point(264, 257);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(83, 17);
+            this.checkBox2.Size = new System.Drawing.Size(75, 17);
             this.checkBox2.TabIndex = 15;
-            this.checkBox2.Text = "CMDも起動";
+            this.checkBox2.Text = "Start CMD";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // Debug
@@ -353,24 +350,11 @@
             this.Debug.UseVisualStyleBackColor = true;
             this.Debug.Click += new System.EventHandler(this.Debug_Click);
             // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "EN"});
-            this.comboBox3.Location = new System.Drawing.Point(362, 13);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(63, 21);
-            this.comboBox3.TabIndex = 17;
-            this.comboBox3.Text = "EN";
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
-            this.comboBox3.SelectedValueChanged += new System.EventHandler(this.comboBox3_SelectedValueChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 581);
+            this.ClientSize = new System.Drawing.Size(465, 554);
             this.Controls.Add(this.Debug);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.button4);
@@ -402,7 +386,6 @@
         #endregion
         public System.Windows.Forms.TextBox textBox3;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.Label label8;
         public System.Windows.Forms.MenuStrip menuStrip1;
         public System.Windows.Forms.ToolStripMenuItem ファイルToolStripMenuItem;
         public System.Windows.Forms.StatusStrip statusStrip1;
@@ -430,7 +413,6 @@
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.Button Debug;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        public System.Windows.Forms.ComboBox comboBox3;
     }
 }
 

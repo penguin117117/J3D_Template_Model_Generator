@@ -17,7 +17,7 @@ namespace J3D_Template_Model_Generator.FileSys
     {
         //宣言
         protected static string mainfilePath;
-        protected static string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp" };
+        protected static string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp, WaterClear_Temp, Poison_Temp" };
         protected static string[] brktype = new string[] { "None", "Flash_Black_Temp" };
         protected static string setpath = Properties.Settings.Default.設定;
         
@@ -50,7 +50,6 @@ namespace J3D_Template_Model_Generator.FileSys
         protected static CheckBox cb2 = Form1.Form1Instance.checkBox2;
         protected static CheckBox cb3 = Form1.Form1Instance.checkBox3;
         protected static ComboBox com1 = Form1.Form1Instance.comboBox1;
-        protected static ComboBox com3 = Form1.Form1Instance.comboBox3;
         protected static TextBox txt1 = Form1.Form1Instance.textBox1;
         protected static TextBox txt2 = Form1.Form1Instance.textBox2;
 

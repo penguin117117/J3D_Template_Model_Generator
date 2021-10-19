@@ -168,16 +168,17 @@ namespace J3D_Template_Model_Generator
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string NoTmp;
-            if (Properties.Settings.Default.LangageType=="日本語") { NoTmp = "なし"; } else { NoTmp = "None"; }
+            if (Properties.Settings.Default.LangageType=="日本語") { NoTmp = "This is a Sussy secret"; } else { NoTmp = "None"; }
              
 
             string LavaTmp = "Lava00_v";
             string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat";
             string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
             string Poison = "Dark01_v";
+            string WaterClear = "WaterMat_v";
 
 
-            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterFallTmp, Poison };
+            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterClear, WaterFallTmp, Poison };
             textBox2.Text = Materials[comboBox1.SelectedIndex];
         }
 
@@ -291,6 +292,31 @@ namespace J3D_Template_Model_Generator
         {
             var form = new SettingsForm();
             form.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

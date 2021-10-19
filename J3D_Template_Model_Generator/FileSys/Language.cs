@@ -35,20 +35,17 @@ namespace J3D_Template_Model_Generator.FileSys
         public static CheckBox cb2 = Form1.Form1Instance.checkBox2;
         public static CheckBox cb3 = Form1.Form1Instance.checkBox3;
         public static ComboBox com1 = Form1.Form1Instance.comboBox1;
-        public static ComboBox com3 = Form1.Form1Instance.comboBox3;
 
         public static TextBox tx2 = Form1.Form1Instance.textBox2;
 
         public static void Form1_Translater(bool com = false) 
         {
-            if (com)Properties.Settings.Default.LangageType = com3.Text ;
 
             switch (Properties.Settings.Default.LangageType)
             {
                
                 case "EN":
                     EN();
-                    com3.SelectedIndex = 0;
                     Properties.Settings.Default.LangageType = "EN";
                     Properties.Settings.Default.Save();
                     break;
