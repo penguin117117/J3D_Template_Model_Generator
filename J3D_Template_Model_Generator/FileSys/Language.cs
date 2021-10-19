@@ -24,7 +24,6 @@ namespace J3D_Template_Model_Generator.FileSys
         public static Label lb1 = Form1.Form1Instance.label1;
         public static Label lb2 = Form1.Form1Instance.label2;
         public static Label lb3 = Form1.Form1Instance.label3;
-        public static Label lb4 = Form1.Form1Instance.label4;
         public static Label lb5 = Form1.Form1Instance.label5;
         public static Label CMD_Error = Form1.Form1Instance.label7;
         public static Label need_mat = Form1.Form1Instance.label6;
@@ -36,7 +35,6 @@ namespace J3D_Template_Model_Generator.FileSys
         public static CheckBox cb2 = Form1.Form1Instance.checkBox2;
         public static CheckBox cb3 = Form1.Form1Instance.checkBox3;
         public static ComboBox com1 = Form1.Form1Instance.comboBox1;
-        public static ComboBox com2 = Form1.Form1Instance.comboBox2;
         public static ComboBox com3 = Form1.Form1Instance.comboBox3;
 
         public static TextBox tx2 = Form1.Form1Instance.textBox2;
@@ -47,15 +45,10 @@ namespace J3D_Template_Model_Generator.FileSys
 
             switch (Properties.Settings.Default.LangageType)
             {
-                case "日本語":
-                    JP();
-                    com3.SelectedIndex = 0;
-                    Properties.Settings.Default.LangageType = "日本語";
-                    Properties.Settings.Default.Save();
-                    break;
+               
                 case "EN":
                     EN();
-                    com3.SelectedIndex = 1;
+                    com3.SelectedIndex = 0;
                     Properties.Settings.Default.LangageType = "EN";
                     Properties.Settings.Default.Save();
                     break;
@@ -76,7 +69,6 @@ namespace J3D_Template_Model_Generator.FileSys
             gp1.Text = "設定";
             lb1.Text = "保存先";
             lb3.Text = "BTK設定";
-            lb4.Text = "BTK設定";
             lb5.Text = "FBX,OBJ名";
             need_mat.Text = "必要なマテリアル";
             CMD_Error.Text = "CMDエラーメッセージ";
@@ -91,6 +83,7 @@ namespace J3D_Template_Model_Generator.FileSys
             com1.Items.Add("溶岩");
             com1.Items.Add("水");
             com1.Items.Add("滝");
+            com1.Items.Add("毒");
             com1.Text = "なし";
             tx2.Text = "なし";
         }
@@ -105,22 +98,22 @@ namespace J3D_Template_Model_Generator.FileSys
             ssstate1.Text = "State：";
             gp1.Text = "Setting";
             lb1.Text = "Save Directory";
-            lb3.Text = "BTK Setting";
-            lb4.Text = "BRK Setting";
-            lb5.Text = "FBX,OBJ　Name";
-            need_mat.Text = "Need Material";
+            lb3.Text = "BTK Settings";
+            lb5.Text = "FBX/OBJ　Names";
+            need_mat.Text = "Material Name(s)";
             CMD_Error.Text = "CMD Error Message ";
             BDL_Button.Text = "Generate BDL";
             ARC_Button.Text = "ARC Compression";
             Col_Button.Text = "Generate Collision";
             Wh_Button.Text = "Open Whitehole";
-            cb2.Text = "CMD Also Started ";
-            cb3.Text = "Add Any Json File (Advanced)";
+            cb2.Text = "Start CMD ";
+            cb3.Text = "Add Any .Json File (Advanced)";
             com1.Items.Clear();
             com1.Items.Add("None");
             com1.Items.Add("Lava");
             com1.Items.Add("Water");
             com1.Items.Add("WaterFall");
+            com1.Items.Add("Poison");
             com1.Text = "None";
             tx2.Text = "None";
         }

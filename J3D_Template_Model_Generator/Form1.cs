@@ -174,8 +174,10 @@ namespace J3D_Template_Model_Generator
             string LavaTmp = "Lava00_v";
             string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat";
             string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
+            string Poison = "Dark01_v";
 
-            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterFallTmp };
+
+            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterFallTmp, Poison };
             textBox2.Text = Materials[comboBox1.SelectedIndex];
         }
 
@@ -273,6 +275,22 @@ namespace J3D_Template_Model_Generator
         private void Debug_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new SettingsForm();
+            form.Show();
         }
     }
 }
