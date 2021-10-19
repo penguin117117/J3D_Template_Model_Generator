@@ -11,6 +11,7 @@ namespace J3D_Template_Model_Generator
         /// <summary>
         /// アプリケーションのメイン エントリ ポイントです。
         /// </summary>
+        //sus
         [STAThread]
         static void Main()
         {
