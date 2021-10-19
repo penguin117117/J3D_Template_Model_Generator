@@ -1,7 +1,7 @@
 # J3D Template Model Generator
 ![GitHub all releases](https://img.shields.io/github/downloads/penguin117117/J3D_Template_Model_Generator/total)
 
-The following items are required for this tool to work.
+The following tools are required for this tool to work.
 
 j3dview 
 https://github.com/RenolY2/j3dview
