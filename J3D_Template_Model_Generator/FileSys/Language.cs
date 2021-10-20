@@ -111,6 +111,8 @@ namespace J3D_Template_Model_Generator.FileSys
             com1.Items.Add("Water");
             com1.Items.Add("WaterFall");
             com1.Items.Add("Poison");
+            com1.Items.Add("Quicksand");
+            com1.Items.Add("Slipsand");
             com1.Text = "None";
             tx2.Text = "None";
         }
