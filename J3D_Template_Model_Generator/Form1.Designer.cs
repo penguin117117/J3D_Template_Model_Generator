@@ -58,6 +58,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.Debug = new System.Windows.Forms.Button();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,7 +69,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ファイルToolStripMenuItem,
             this.編集ToolStripMenuItem,
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(465, 24);
@@ -108,7 +110,7 @@
             // 作業フォルダチェックToolStripMenuItem
             // 
             this.作業フォルダチェックToolStripMenuItem.Name = "作業フォルダチェックToolStripMenuItem";
-            this.作業フォルダチェックToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.作業フォルダチェックToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.作業フォルダチェックToolStripMenuItem.Text = "Folder Check";
             this.作業フォルダチェックToolStripMenuItem.Click += new System.EventHandler(this.作業フォルダチェックToolStripMenuItem_Click);
             // 
@@ -252,7 +254,9 @@
             "Water (Blue)",
             "Water (Clear)",
             "Waterfall",
-            "Poison"});
+            "Poison",
+            "Quicksand",
+            "Slipsand"});
             this.comboBox1.Location = new System.Drawing.Point(14, 137);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(204, 32);
@@ -311,6 +315,7 @@
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox3.Size = new System.Drawing.Size(442, 171);
             this.textBox3.TabIndex = 12;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label7
             // 
@@ -350,6 +355,12 @@
             this.Debug.Text = "デバッグ";
             this.Debug.UseVisualStyleBackColor = true;
             this.Debug.Click += new System.EventHandler(this.Debug_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
             // 
             // Form1
             // 
@@ -414,6 +425,7 @@
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.Button Debug;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

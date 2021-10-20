@@ -176,9 +176,11 @@ namespace J3D_Template_Model_Generator
             string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
             string Poison = "Dark01_v";
             string WaterClear = "WaterMat_v";
+            string Quicksand = "Sand00_v";
+            string Slipsand = "SandRiver_v";
 
 
-            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterClear, WaterFallTmp, Poison };
+            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterClear, WaterFallTmp, Poison, Quicksand, Slipsand};
             textBox2.Text = Materials[comboBox1.SelectedIndex];
         }
 
@@ -322,6 +324,11 @@ namespace J3D_Template_Model_Generator
         private void label1_Click(object sender, EventArgs e)
         {
             //sus
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
