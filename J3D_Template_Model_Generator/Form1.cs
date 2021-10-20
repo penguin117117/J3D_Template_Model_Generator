@@ -172,7 +172,7 @@ namespace J3D_Template_Model_Generator
              
 
             string LavaTmp = "Lava00_v";
-            string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat";
+            string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat (Clear Water)";
             string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
             string Quicksand = "Sand00_v";
             string Slipsand = "SandRiver_v";
@@ -325,6 +325,11 @@ namespace J3D_Template_Model_Generator
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

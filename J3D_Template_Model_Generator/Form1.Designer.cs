@@ -222,6 +222,7 @@
             this.textBox2.Size = new System.Drawing.Size(171, 102);
             this.textBox2.TabIndex = 10;
             this.textBox2.Text = "None";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
@@ -250,7 +251,7 @@
             "None",
             "Lava",
             "Water",
-            "Waterfall",
+            "(not working atm)",
             "Quicksand",
             "Slipsand"});
             this.comboBox1.Location = new System.Drawing.Point(14, 137);
