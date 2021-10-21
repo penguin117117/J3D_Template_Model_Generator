@@ -17,3 +17,4 @@ https://github.com/gayfrogog/pyKCLCreate
 
 PyQT5 or PyQT4 (required for pyKCLCreate)
 
+Notes: Unzip J3D_Template_Model_Generator.zip and place it on your C:\ drive
