@@ -24,7 +24,7 @@ namespace J3D_Template_Model_Generator
     public partial class Form1 : Form
     {
         public string mainfilePath = "";
-        public string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp"};
+        public string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp"};
         public string[] brktype = new string[] { "None", "Flash_Black" };
         public Form1()
         {
@@ -176,9 +176,11 @@ namespace J3D_Template_Model_Generator
             string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
             string Quicksand = "Sand00_v";
             string Slipsand = "SandRiver_v";
+            string Poison = "Dark01_v";
+            string Mud = "lambert16_v";
 
 
-            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterFallTmp, Quicksand, Slipsand};
+            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterFallTmp, Quicksand, Slipsand, Poison, Mud};
             textBox2.Text = Materials[comboBox1.SelectedIndex];
         }
 

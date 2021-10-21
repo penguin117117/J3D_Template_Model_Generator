@@ -251,9 +251,11 @@
             "None",
             "Lava",
             "Water",
-            "(not working atm)",
+            "Waterfall",
             "Quicksand",
-            "Slipsand"});
+            "Slipsand",
+            "Poison",
+            "Mud"});
             this.comboBox1.Location = new System.Drawing.Point(14, 137);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(204, 32);

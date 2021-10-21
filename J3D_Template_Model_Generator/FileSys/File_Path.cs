@@ -17,7 +17,7 @@ namespace J3D_Template_Model_Generator.FileSys
     {
         //宣言
         protected static string mainfilePath;
-        protected static string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp, Poison_Temp", "Quicksand_Temp", "Slipsand_Temp" };
+        protected static string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp"};
         protected static string[] brktype = new string[] { "None", "Flash_Black_Temp", "Test"};
         protected static string setpath = Properties.Settings.Default.設定;
         
