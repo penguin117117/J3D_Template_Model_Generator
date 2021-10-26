@@ -24,7 +24,7 @@ namespace J3D_Template_Model_Generator
     public partial class Form1 : Form
     {
         public string mainfilePath = "";
-        public string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp" };
+        public string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp"};
         public string[] brktype = new string[] { "None", "Flash_Black" };
         public Form1()
         {
@@ -168,14 +168,19 @@ namespace J3D_Template_Model_Generator
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string NoTmp;
-            if (Properties.Settings.Default.LangageType=="日本語") { NoTmp = "なし"; } else { NoTmp = "None"; }
+            if (Properties.Settings.Default.LangageType=="日本語") { NoTmp = "This is a Sussy secret"; } else { NoTmp = "None"; }
              
 
             string LavaTmp = "Lava00_v";
-            string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat";
+            string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat (Clear Water)";
             string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
+            string Quicksand = "Sand00_v";
+            string Slipsand = "SandRiver_v";
+            string Poison = "Dark01_v";
+            string Mud = "lambert16_v";
 
-            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterFallTmp };
+
+            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterFallTmp, Quicksand, Slipsand, Poison, Mud};
             textBox2.Text = Materials[comboBox1.SelectedIndex];
         }
 
@@ -273,6 +278,62 @@ namespace J3D_Template_Model_Generator
         private void Debug_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new SettingsForm();
+            form.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            //sus
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -17,8 +17,8 @@ namespace J3D_Template_Model_Generator.FileSys
     {
         //宣言
         protected static string mainfilePath;
-        protected static string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp" };
-        protected static string[] brktype = new string[] { "None", "Flash_Black_Temp" };
+        protected static string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp"};
+        protected static string[] brktype = new string[] { "None", "Flash_Black_Temp", "Test"};
         protected static string setpath = Properties.Settings.Default.設定;
         
         //フォームコントロールのインスタンス作成
@@ -38,7 +38,6 @@ namespace J3D_Template_Model_Generator.FileSys
         protected static Label lb1 = Form1.Form1Instance.label1;
         protected static Label lb2 = Form1.Form1Instance.label2;
         protected static Label lb3 = Form1.Form1Instance.label3;
-        protected static Label lb4 = Form1.Form1Instance.label4;
         protected static Label lb5 = Form1.Form1Instance.label5;
         protected static Label CMD_Error = Form1.Form1Instance.label7;
         protected static Label need_mat = Form1.Form1Instance.label6;
@@ -51,8 +50,6 @@ namespace J3D_Template_Model_Generator.FileSys
         protected static CheckBox cb2 = Form1.Form1Instance.checkBox2;
         protected static CheckBox cb3 = Form1.Form1Instance.checkBox3;
         protected static ComboBox com1 = Form1.Form1Instance.comboBox1;
-        protected static ComboBox com2 = Form1.Form1Instance.comboBox2;
-        protected static ComboBox com3 = Form1.Form1Instance.comboBox3;
         protected static TextBox txt1 = Form1.Form1Instance.textBox1;
         protected static TextBox txt2 = Form1.Form1Instance.textBox2;
 
@@ -189,7 +186,7 @@ namespace J3D_Template_Model_Generator.FileSys
         public void Path_Set()
         {
             btkcomb = btktype[com1.SelectedIndex];
-            brkcomb = brktype[com2.SelectedIndex];
+
 
             //ファイルパス変数相対
             btkcomb_path = @"\" + btkcomb;
@@ -273,7 +270,7 @@ namespace J3D_Template_Model_Generator.FileSys
         {
             json_flags[0] = cb3.Checked;
             if (btktype[com1.SelectedIndex] != "None") json_flags[1] = true;
-            if (btktype[com2.SelectedIndex] != "None") json_flags[2] = true;
+
         }
 
         public void Json_Joint_Type() 

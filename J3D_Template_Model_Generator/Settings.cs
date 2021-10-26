@@ -14,7 +14,10 @@
             // this.SettingChanging += this.SettingChangingEventHandler;
             //
             // this.SettingsSaving += this.SettingsSavingEventHandler;
-            //
+            //this.SettingsSaving += this.SettingsSavingEventHandler;
+            //temp (remove later)
+            
+            
         }
         
         private void SettingChangingEventHandler(object sender, System.Configuration.SettingChangingEventArgs e) {
