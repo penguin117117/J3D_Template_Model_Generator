@@ -24,8 +24,8 @@ namespace J3D_Template_Model_Generator
     public partial class Form1 : Form
     {
         public string mainfilePath = "";
-        public string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp"};
-        public string[] brktype = new string[] { "None", "Flash_Black" };
+        //public string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp"};
+        //public string[] brktype = new string[] { "None", "Flash_Black" };
         public Form1()
         {
             InitializeComponent();
@@ -74,7 +74,7 @@ namespace J3D_Template_Model_Generator
             if (textBox1.Text=="") { 
                 textBox1.Text = "Test"; 
             }
-            string combotex = btktype[comboBox1.SelectedIndex];
+            string combotex = TempName.btktype[comboBox1.SelectedIndex];
             string User_Root = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
             string bdl_file = User_Root + @"BDL_BMD\" + textBox1.Text +@".bdl";
             string BTK_file = User_Root + @"BTK\" + combotex+ @"\"+ combotex + @".btk";
@@ -167,21 +167,24 @@ namespace J3D_Template_Model_Generator
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string NoTmp;
-            if (Properties.Settings.Default.LangageType=="日本語") { NoTmp = "This is a Sussy secret"; } else { NoTmp = "None"; }
-             
-
-            string LavaTmp = "Lava00_v";
-            string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat (Clear Water)";
-            string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
-            string Quicksand = "Sand00_v";
-            string Slipsand = "SandRiver_v";
-            string Poison = "Dark01_v";
-            string Mud = "lambert16_v";
+            //string NoTmp;
+            //if (Properties.Settings.Default.LangageType=="日本語") { NoTmp = "This is a Sussy secret"; } else { NoTmp = "None"; }
 
 
-            string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterFallTmp, Quicksand, Slipsand, Poison, Mud};
-            textBox2.Text = Materials[comboBox1.SelectedIndex];
+            //string LavaTmp = "Lava00_v";
+            //string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat (Clear Water)";
+            //string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
+            //string Quicksand = "Sand00_v";
+            //string Slipsand = "SandRiver_v";
+            //string Poison = "Dark01_v";
+            //string Mud = "lambert16_v";
+
+
+            //string[] Materials = {NoTmp, LavaTmp, WaterTmp , WaterFallTmp, Quicksand, Slipsand, Poison, Mud};
+            //textBox2.Text = Materials[comboBox1.SelectedIndex];
+
+            var MatArray_Str = MatName.GetNeedMats();
+            textBox2.Text = MatArray_Str[comboBox1.SelectedIndex];
         }
 
         private void button4_Click(object sender, EventArgs e)

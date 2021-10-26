@@ -10,15 +10,63 @@ using mes = J3D_Template_Model_Generator.FileSys.Message;
 using sff = J3D_Template_Model_Generator.FileSys.Select_File_Folder;
 using efe = J3D_Template_Model_Generator.FileSys.External_File_Executor;
 using fe = J3D_Template_Model_Generator.FileSys.File_Edit;
+using env = System.Environment;
 
 namespace J3D_Template_Model_Generator.FileSys
 {
-    class File_Path_State 
+    class TempName
+    {
+        public static readonly string[] btktype = { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp", "GliderStarWater_Temp" };
+        public static readonly string[] brktype = { "None", "Flash_Black_Temp" };
+    }
+
+
+
+    class MatName
+    {
+        /// <summary>
+        /// BTKファイルの必要マテリアルを表示します。
+        /// </summary>
+        /// <returns>BTKの必要マテリアルのstring配列</returns>
+        public static string[] GetNeedMats()
+        {
+            string NoTmp = "None";
+            if (Properties.Settings.Default.LangageType == "日本語")
+            {
+                NoTmp = "なし";
+            }
+
+            string LavaTmp = "Lava00_v";
+            string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat";
+            string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
+            string Quicksand = "Sand00_v";
+            string Slipsand = "SandRiver_v";
+            string Poison = "Dark01_v";
+            string Mud = "lambert16_v";
+            string GliderStarWaterTemp = "WaterMat00_v_x";
+
+            var Mats = new string[]
+            {
+                NoTmp,
+                LavaTmp,
+                WaterTmp,
+                WaterFallTmp,
+                Quicksand,
+                Slipsand,
+                Poison,
+                Mud,
+                GliderStarWaterTemp
+            };
+            return Mats;
+        }
+    }
+
+    class File_Path_State : TempName
     {
         //宣言
         protected static string mainfilePath;
-        protected static string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp"};
-        protected static string[] brktype = new string[] { "None", "Flash_Black_Temp", "Test"};
+        //protected static string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp"};
+        //protected static string[] brktype = new string[] { "None", "Flash_Black_Temp", "Test"};
         protected static string setpath = Properties.Settings.Default.設定;
         
         //フォームコントロールのインスタンス作成

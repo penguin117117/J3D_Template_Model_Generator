@@ -37,19 +37,31 @@ namespace J3D_Template_Model_Generator.FileSys
         public static ComboBox com1 = Form1.Form1Instance.comboBox1;
 
         public static TextBox tx2 = Form1.Form1Instance.textBox2;
+        public static ToolStripMenuItem setting_tsmi = Form1.Form1Instance.settingsToolStripMenuItem;
+        //public static ComboBox com3 = SettingsForm.SettingsFormInstance.comboBox3;
 
         public static void Form1_Translater(bool com = false) 
         {
 
             switch (Properties.Settings.Default.LangageType)
             {
-               
+                case "日本語":
+                    JP();
+                    //com3.SelectedIndex = 0;
+                    Properties.Settings.Default.LangageType = "日本語";
+                    Properties.Settings.Default.Save();
+                    break;
                 case "EN":
                     EN();
+                    //com3.SelectedIndex = 1;
                     Properties.Settings.Default.LangageType = "EN";
                     Properties.Settings.Default.Save();
                     break;
                 default:
+                    EN();
+                    //com3.SelectedIndex = 1;
+                    Properties.Settings.Default.LangageType = "EN";
+                    Properties.Settings.Default.Save();
                     break;
             }
             
@@ -62,6 +74,7 @@ namespace J3D_Template_Model_Generator.FileSys
             tssave.Text = "保存(未実装)";
             tsfoldercheck.Text = "作業フォルダチェック";
             tsedit.Text = "編集";
+            setting_tsmi.Text = "設定";
             ssstate1.Text = "状態：";
             gp1.Text = "設定";
             lb1.Text = "保存先";
@@ -81,6 +94,10 @@ namespace J3D_Template_Model_Generator.FileSys
             com1.Items.Add("水");
             com1.Items.Add("滝");
             com1.Items.Add("毒");
+            com1.Items.Add("流砂");
+            com1.Items.Add("流れる砂");
+            com1.Items.Add("泥");
+            com1.Items.Add("グライバード水");
             com1.Text = "なし";
             tx2.Text = "なし";
         }
@@ -92,6 +109,7 @@ namespace J3D_Template_Model_Generator.FileSys
             tssave.Text = "Save(Unimplemented)";
             tsfoldercheck.Text = "Working folder check";
             tsedit.Text = "Edit";
+            setting_tsmi.Text = "Settings";
             ssstate1.Text = "State：";
             gp1.Text = "Setting";
             lb1.Text = "Save Directory";
@@ -113,6 +131,8 @@ namespace J3D_Template_Model_Generator.FileSys
             com1.Items.Add("Poison");
             com1.Items.Add("Quicksand");
             com1.Items.Add("Slipsand");
+            com1.Items.Add("Mud");
+            com1.Items.Add("GliderStarWater");
             com1.Text = "None";
             tx2.Text = "None";
         }
