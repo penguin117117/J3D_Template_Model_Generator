@@ -9,7 +9,7 @@ namespace J3D_Template_Model_Generator.FileSys
 {
     class Message
     {
-        public static TextBox tx1 = Form1.Form1Instance.textBox1;
+        public static TextBox tx1 = Form1.Form1Instance.FbxAndObj_ModelNameTextBox;
         public static DialogResult sysmes(short Message_Type =0 ,string a = "",string b ="") {
             DialogResult result = DialogResult.No;
             Console.WriteLine(Properties.Settings.Default.LangageType);
