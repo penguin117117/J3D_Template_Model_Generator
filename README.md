@@ -17,7 +17,7 @@ This tool makes it easy to create texture animations like the one shown below fr
 4.Quicksand_Temp/流砂<br/>
 5.Slipsand_Temp/流れる砂<br/>
 6.Poison_Temp/毒<br/>
-7.Mud_Temp/沼<br/>
+7.Mud_Temp/泥<br/>
 8.GliderStarWater_Temp/ジャングルグライダー水
 
 ### BRK
