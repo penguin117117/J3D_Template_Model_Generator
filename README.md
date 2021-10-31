@@ -8,6 +8,21 @@ This tool makes it easy to create texture animations like the one shown below fr
 ![GliderStarWater](https://user-images.githubusercontent.com/82487890/139570705-45d7d70a-2d6b-421f-b4e5-afe78e3693e5.gif)
 ![WaterBTK](https://user-images.githubusercontent.com/82487890/139570738-631e555e-3a58-4257-bcf4-382059c8d5db.gif)
 
+## List of currently available templates/現在使用できるテンプレート一覧
+
+### BTK
+1.Lava_Temp/溶岩<br/>
+2.Water_Temp/水<br/>
+3.WaterFall_Temp/滝<br/>
+4.Quicksand_Temp/流砂<br/>
+5.Slipsand_Temp/流れる砂<br/>
+6.Poison_Temp/毒<br/>
+7.Mud_Temp/沼<br/>
+8.GliderStarWater_Temp/ジャングルグライダー水
+
+### BRK
+1.Flash_Black_Temp/フラッシュブラック
+
 ## What to prepare/準備するもの
 The following tools are required for this program to work.<br/>
 このプログラムを動作させるためには、以下のツールが必要です。
