@@ -14,28 +14,53 @@ using env = System.Environment;
 
 namespace J3D_Template_Model_Generator.FileSys
 {
-    class TempName
+    public class TempName
     {
         public static readonly string[] btktype = { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp", "GliderStarWater_Temp" };
         public static readonly string[] brktype = { "None", "Flash_Black_Temp" };
+        public static readonly string[] brkName = { "None" , "Appear" };
     }
 
-
-
-    class MatName
+    /// <summary>
+    /// 
+    /// </summary>
+    public interface IMatType 
     {
-        /// <summary>
-        /// BTKファイルの必要マテリアルを表示します。
-        /// </summary>
-        /// <returns>BTKの必要マテリアルのstring配列</returns>
-        public static string[] GetNeedMats()
-        {
-            string NoTmp = "None";
-            if (Properties.Settings.Default.LangageType == "日本語")
-            {
-                NoTmp = "なし";
-            }
+        string[] GetMats();
+    }
 
+    
+    public class MatName
+    {
+        private readonly IMatType _matType;
+
+        /// <summary>
+        /// マテリアルの名前を制御するクラス<br/>
+        /// Class to control the name of the material<br/>
+        /// <see cref="IMatType"/> = <see cref="BRK"/> or <see cref="BTK"/>
+        /// </summary>
+        /// <param name="imatType"><see cref="BRK"/> or <see cref="BTK"/></param>
+        public MatName(IMatType imatType) 
+        {
+            _matType = imatType;
+        }
+
+        /// <summary>
+        /// テンプレートモデルの作成に必要なマテリアルをString配列で取得します。<br/>
+        /// Get the materials required to create the template model as a String array.
+        /// </summary>
+        /// <returns></returns>
+        public string[] GetNeedMats()
+        {
+            return _matType.GetMats();
+        }
+    }
+
+    public class BTK : IMatType 
+    {
+        public string[] GetMats() 
+        {
+            string NoTmp = string.Empty;
             string LavaTmp = "Lava00_v";
             string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat";
             string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
@@ -61,12 +86,26 @@ namespace J3D_Template_Model_Generator.FileSys
         }
     }
 
+    public class BRK : IMatType
+    {
+        public string[] GetMats()
+        {
+            string NoTmp = string.Empty;
+            string BrkTmp = "brktest_v";
+            
+            var Mats = new string[]
+            {
+                NoTmp,
+                BrkTmp
+            };
+            return Mats;
+        }
+    }
+
     class File_Path_State : TempName
     {
         //宣言
         protected static string mainfilePath;
-        //protected static string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp"};
-        //protected static string[] brktype = new string[] { "None", "Flash_Black_Temp", "Test"};
         protected static string setpath = Properties.Settings.Default.設定;
         
         //フォームコントロールのインスタンス作成
@@ -89,8 +128,8 @@ namespace J3D_Template_Model_Generator.FileSys
         protected static Label lb5 = Form1.Form1Instance.label5;
         protected static Label CMD_Error = Form1.Form1Instance.label7;
         protected static Label need_mat = Form1.Form1Instance.label6;
-        protected static Button BDL_Button = Form1.Form1Instance.button1;
-        protected static Button ARC_Button = Form1.Form1Instance.button2;
+        protected static Button BDL_Button = Form1.Form1Instance.GenerateBdl_Button;
+        protected static Button ARC_Button = Form1.Form1Instance.ConvertArc_Button;
         protected static Button Col_Button = Form1.Form1Instance.button3;
         protected static Button Wh_Button = Form1.Form1Instance.button4;
         protected static Button Debug_Button = Form1.Form1Instance.Debug;
@@ -98,8 +137,9 @@ namespace J3D_Template_Model_Generator.FileSys
         protected static CheckBox cb2 = Form1.Form1Instance.checkBox2;
         protected static CheckBox cb3 = Form1.Form1Instance.checkBox3;
         protected static ComboBox com1 = Form1.Form1Instance.comboBox1;
-        protected static TextBox txt1 = Form1.Form1Instance.textBox1;
-        protected static TextBox txt2 = Form1.Form1Instance.textBox2;
+        protected static ComboBox com2 = Form1.Form1Instance.comboBox2;
+        protected static TextBox txt1 = Form1.Form1Instance.FbxAndObj_ModelNameTextBox;
+        protected static TextBox txt2 = Form1.Form1Instance.NeedMaterial;
 
         
     }
@@ -234,7 +274,7 @@ namespace J3D_Template_Model_Generator.FileSys
         public void Path_Set()
         {
             btkcomb = btktype[com1.SelectedIndex];
-
+            brkcomb = brktype[com2.SelectedIndex];
 
             //ファイルパス変数相対
             btkcomb_path = @"\" + btkcomb;
@@ -318,6 +358,7 @@ namespace J3D_Template_Model_Generator.FileSys
         {
             json_flags[0] = cb3.Checked;
             if (btktype[com1.SelectedIndex] != "None") json_flags[1] = true;
+            if (brktype[com2.SelectedIndex] != "None") json_flags[2] = true;
 
         }
 
