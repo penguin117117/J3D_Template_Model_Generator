@@ -43,6 +43,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.NeedMaterial = new System.Windows.Forms.TextBox();
@@ -58,8 +60,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.Debug = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,7 +71,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ファイルToolStripMenuItem,
             this.編集ToolStripMenuItem,
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.情報ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(462, 24);
@@ -193,6 +195,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Setting";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label4.Location = new System.Drawing.Point(12, 151);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(142, 24);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "BRK Settings";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            "None"});
+            this.comboBox2.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "None",
+            "FlashBlack"});
+            this.comboBox2.Location = new System.Drawing.Point(14, 178);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(203, 32);
+            this.comboBox2.TabIndex = 17;
+            this.comboBox2.Text = "None";
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.BtkOrBrkComboBox_SelectedIndexChanged);
             // 
             // checkBox3
             // 
@@ -359,31 +387,12 @@
             this.Debug.UseVisualStyleBackColor = true;
             this.Debug.Click += new System.EventHandler(this.Debug_Click);
             // 
-            // comboBox2
+            // 情報ToolStripMenuItem
             // 
-            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
-            "None"});
-            this.comboBox2.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "None",
-            "FlashBlack"});
-            this.comboBox2.Location = new System.Drawing.Point(14, 178);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(203, 32);
-            this.comboBox2.TabIndex = 17;
-            this.comboBox2.Text = "None";
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.BtkOrBrkComboBox_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(12, 151);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 24);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "BRK Settings";
+            this.情報ToolStripMenuItem.Name = "情報ToolStripMenuItem";
+            this.情報ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.情報ToolStripMenuItem.Text = "情報";
+            this.情報ToolStripMenuItem.Click += new System.EventHandler(this.情報ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -450,6 +459,7 @@
         public System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         public System.Windows.Forms.ComboBox comboBox2;
         public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.ToolStripMenuItem 情報ToolStripMenuItem;
     }
 }
 

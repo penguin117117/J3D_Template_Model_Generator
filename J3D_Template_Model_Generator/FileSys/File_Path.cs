@@ -21,23 +21,35 @@ namespace J3D_Template_Model_Generator.FileSys
         public static readonly string[] brkName = { "None" , "Appear" };
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IMatType 
     {
         string[] GetMats();
     }
 
+    
     public class MatName
     {
         private readonly IMatType _matType;
+
+        /// <summary>
+        /// マテリアルの名前を制御するクラス<br/>
+        /// Class to control the name of the material<br/>
+        /// <see cref="IMatType"/> = <see cref="BRK"/> or <see cref="BTK"/>
+        /// </summary>
+        /// <param name="imatType"><see cref="BRK"/> or <see cref="BTK"/></param>
         public MatName(IMatType imatType) 
         {
             _matType = imatType;
         }
 
         /// <summary>
-        /// BTKファイルの必要マテリアルを表示します。
+        /// テンプレートモデルの作成に必要なマテリアルをString配列で取得します。<br/>
+        /// Get the materials required to create the template model as a String array.
         /// </summary>
-        /// <returns>BTKの必要マテリアルのstring配列</returns>
+        /// <returns></returns>
         public string[] GetNeedMats()
         {
             return _matType.GetMats();
@@ -48,12 +60,7 @@ namespace J3D_Template_Model_Generator.FileSys
     {
         public string[] GetMats() 
         {
-            string NoTmp = "";
-            //if (Properties.Settings.Default.LangageType == "日本語")
-            //{
-            //    NoTmp = "なし";
-            //}
-
+            string NoTmp = string.Empty;
             string LavaTmp = "Lava00_v";
             string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat";
             string WaterFallTmp = "FallMat_v" + env.NewLine + "e_FallMat_v_x" + env.NewLine + "d_FallAlfaMat_v_x";
@@ -83,18 +90,13 @@ namespace J3D_Template_Model_Generator.FileSys
     {
         public string[] GetMats()
         {
-            string NoTmp = "";
-            //if (Properties.Settings.Default.LangageType == "日本語")
-            //{
-            //    NoTmp = "なし";
-            //}
-
-            string LavaTmp = "brktest_v";
+            string NoTmp = string.Empty;
+            string BrkTmp = "brktest_v";
             
             var Mats = new string[]
             {
                 NoTmp,
-                LavaTmp
+                BrkTmp
             };
             return Mats;
         }
@@ -104,8 +106,6 @@ namespace J3D_Template_Model_Generator.FileSys
     {
         //宣言
         protected static string mainfilePath;
-        //protected static string[] btktype = new string[] { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp"};
-        //protected static string[] brktype = new string[] { "None", "Flash_Black_Temp", "Test"};
         protected static string setpath = Properties.Settings.Default.設定;
         
         //フォームコントロールのインスタンス作成

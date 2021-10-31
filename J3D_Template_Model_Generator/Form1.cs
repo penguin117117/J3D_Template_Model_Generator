@@ -339,5 +339,11 @@ namespace J3D_Template_Model_Generator
         {
 
         }
+
+        private void 情報ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var InfoForm = new InfoForm();
+            InfoForm.Show();
+        }
     }
 }

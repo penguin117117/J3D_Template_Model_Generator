@@ -16,6 +16,7 @@ namespace J3D_Template_Model_Generator.FileSys
         public static ToolStripMenuItem tssave = Form1.Form1Instance.保存ToolStripMenuItem;
         public static ToolStripMenuItem tsfoldercheck = Form1.Form1Instance.作業フォルダチェックToolStripMenuItem;
         public static ToolStripMenuItem tsedit = Form1.Form1Instance.編集ToolStripMenuItem;
+        public static ToolStripMenuItem tsinfo = Form1.Form1Instance.情報ToolStripMenuItem;
         //ボトムメニュー
         public static ToolStripStatusLabel ssstate1 = Form1.Form1Instance.toolStripStatusLabel1;
         public static ToolStripStatusLabel ssstate2 = Form1.Form1Instance.toolStripStatusLabel1;
@@ -76,6 +77,7 @@ namespace J3D_Template_Model_Generator.FileSys
             tssave.Text = "保存(未実装)";
             tsfoldercheck.Text = "作業フォルダチェック";
             tsedit.Text = "編集";
+            tsinfo.Text = "情報";
             setting_tsmi.Text = "設定";
             ssstate1.Text = "状態：";
             gp1.Text = "設定";
@@ -116,6 +118,7 @@ namespace J3D_Template_Model_Generator.FileSys
             tssave.Text = "Save(Unimplemented)";
             tsfoldercheck.Text = "Working folder check";
             tsedit.Text = "Edit";
+            tsinfo.Text = "Info";
             setting_tsmi.Text = "Settings";
             ssstate1.Text = "State：";
             gp1.Text = "Setting";
