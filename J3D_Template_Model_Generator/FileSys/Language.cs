@@ -91,7 +91,7 @@ namespace J3D_Template_Model_Generator.FileSys
             ARC_Button.Text = "ARC圧縮";
             Col_Button.Text = "コリジョンファイル生成";
             Wh_Button.Text = "ホワイトホール起動";
-            cb2.Text = "CMDも起動";
+            cb2.Text = "CMDも起動(ホワイトホール)";
             cb3.Text = "任意のjsonを追加(上級者向け)";
             com1.Items.Clear();
             com1.Items.Add("なし");
