@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
+using System.Diagnostics;
 using fc = J3D_Template_Model_Generator.FileSys.FolderCreate;
 using mes = J3D_Template_Model_Generator.FileSys.Message;
 using sff = J3D_Template_Model_Generator.FileSys.Select_File_Folder;
@@ -16,7 +18,7 @@ namespace J3D_Template_Model_Generator.FileSys
 {
     public class TempName
     {
-        public static readonly string[] btktype = { "None", "Lava_Temp", "Water_Temp", "WaterFall_Temp", "Quicksand_Temp", "Slipsand_Temp", "Poison_Temp", "Mud_Temp", "GliderStarWater_Temp" };
+        public static readonly string[] btktype = BTK.GetTempList();
         public static readonly string[] brktype = { "None", "Flash_Black_Temp" };
         public static readonly string[] brkName = { "None" , "Appear" };
     }
@@ -56,10 +58,15 @@ namespace J3D_Template_Model_Generator.FileSys
         }
     }
 
-    public class BTK : IMatType 
+    public class BTK : IMatType
     {
+
         public string[] GetMats() 
         {
+            string path = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
+            var test = File.ReadAllLines(path + "System\\BTK\\BTK_Need_Materials.dat");
+            var sepachange = test.Select(value => value.Replace(",",env.NewLine)).ToArray();
+            return sepachange;
             string NoTmp = string.Empty;
             string LavaTmp = "Lava00_v";
             string WaterTmp = "a_WaterBFMat" + env.NewLine + "b_WaterMat";
@@ -83,6 +90,12 @@ namespace J3D_Template_Model_Generator.FileSys
                 GliderStarWaterTemp
             };
             return Mats;
+        }
+
+        public static string[] GetTempList()
+        {
+            string path = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
+            return File.ReadAllLines(path + "System\\BTK\\BTK_Temp.dat");
         }
     }
 

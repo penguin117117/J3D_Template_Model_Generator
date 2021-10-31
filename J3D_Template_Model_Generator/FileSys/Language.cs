@@ -72,6 +72,8 @@ namespace J3D_Template_Model_Generator.FileSys
 
         public static void JP() 
         {
+            string path = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
+            var test = File.ReadAllLines(path + "System\\BTK\\BTK_日本語_ComBoxText.dat");
             tsfile.Text = "ファイル";
             tsopen.Text = "開く";
             tssave.Text = "保存(未実装)";
@@ -94,15 +96,16 @@ namespace J3D_Template_Model_Generator.FileSys
             cb2.Text = "CMDも起動(ホワイトホール)";
             cb3.Text = "任意のjsonを追加(上級者向け)";
             com1.Items.Clear();
-            com1.Items.Add("なし");
-            com1.Items.Add("溶岩");
-            com1.Items.Add("水");
-            com1.Items.Add("滝");
-            com1.Items.Add("毒");
-            com1.Items.Add("流砂");
-            com1.Items.Add("流れる砂");
-            com1.Items.Add("泥");
-            com1.Items.Add("グライバード水");
+            foreach (string combox1str in test) com1.Items.Add(combox1str);
+            //com1.Items.Add("なし");
+            //com1.Items.Add("溶岩");
+            //com1.Items.Add("水");
+            //com1.Items.Add("滝");
+            //com1.Items.Add("毒");
+            //com1.Items.Add("流砂");
+            //com1.Items.Add("流れる砂");
+            //com1.Items.Add("泥");
+            //com1.Items.Add("グライバード水");
             com2.Items.Clear();
             com2.Items.Add("なし");
             com2.Items.Add("フラッシュブラック");
@@ -113,6 +116,8 @@ namespace J3D_Template_Model_Generator.FileSys
 
         public static void EN() 
         {
+            string path = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
+            var test = File.ReadAllLines(path + "System\\BTK\\BTK_EN_ComBoxText.dat");
             tsfile.Text = "File";
             tsopen.Text = "Open";
             tssave.Text = "Save(Unimplemented)";
@@ -135,15 +140,16 @@ namespace J3D_Template_Model_Generator.FileSys
             cb2.Text = "Start CMD ";
             cb3.Text = "Add Any .Json File (Advanced)";
             com1.Items.Clear();
-            com1.Items.Add("None");
-            com1.Items.Add("Lava");
-            com1.Items.Add("Water");
-            com1.Items.Add("WaterFall");
-            com1.Items.Add("Poison");
-            com1.Items.Add("Quicksand");
-            com1.Items.Add("Slipsand");
-            com1.Items.Add("Mud");
-            com1.Items.Add("GliderStarWater");
+            foreach (string combox1str in test) com1.Items.Add(combox1str);
+            //com1.Items.Add("None");
+            //com1.Items.Add("Lava");
+            //com1.Items.Add("Water");
+            //com1.Items.Add("WaterFall");
+            //com1.Items.Add("Poison");
+            //com1.Items.Add("Quicksand");
+            //com1.Items.Add("Slipsand");
+            //com1.Items.Add("Mud");
+            //com1.Items.Add("GliderStarWater");
             com2.Items.Clear();
             com2.Items.Add("None");
             com2.Items.Add("FlashBlack");
