@@ -61,6 +61,16 @@ namespace J3D_Template_Model_Generator.Properties {
         }
         
         /// <summary>
+        ///   型 System.Byte[] のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static byte[] ComboBoxSettings {
+            get {
+                object obj = ResourceManager.GetObject("ComboBoxSettings", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   C:\J3D_Template_Model_Generator に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string DefaultPath {

@@ -7,7 +7,7 @@
     <ProjectGuid>{F976A7E1-3E88-4151-ACFE-CEE260B4E6A9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>J3D_Template_Model_Generator</RootNamespace>
-    <AssemblyName>J3D_Template_Model_Generator_Ver0.5.7.2</AssemblyName>
+    <AssemblyName>J3D_Template_Model_Generator_Ver0.5.8.0</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\J3D_Template_Model_Generator_Ver0.5.7.2\</OutputPath>
+    <OutputPath>bin\Release\J3D_Template_Model_Generator_Ver0.5.8.0\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -89,6 +89,7 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileSys\SystemFileLoader.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +133,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ComboBoxSettings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
