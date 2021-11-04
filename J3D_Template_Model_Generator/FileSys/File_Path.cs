@@ -18,7 +18,8 @@ namespace J3D_Template_Model_Generator.FileSys
 {
     public class TempName
     {
-        public static readonly string[] btktype = BTK.GetTempList();
+        public static readonly string[] btktype = SystemFileLoader.TempNames.ToArray();
+        //public static readonly string[] btktype = BTK.GetTempList();
         public static readonly string[] brktype = { "None", "Flash_Black_Temp" };
         public static readonly string[] brkName = { "None" , "Appear" };
     }
@@ -63,9 +64,10 @@ namespace J3D_Template_Model_Generator.FileSys
 
         public string[] GetMats() 
         {
-            string path = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
-            var test = File.ReadAllLines(path + "System\\BTK\\BTK_Need_Materials.dat");
-            var sepachange = test.Select(value => value.Replace(",",env.NewLine)).ToArray();
+            //string path = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
+            //var test = File.ReadAllLines(path + "System\\BTK\\BTK_Need_Materials.dat");
+            var mats = SystemFileLoader.NeedMats;
+            var sepachange = mats.Select(value => value.Replace(",",env.NewLine)).ToArray();
             return sepachange;
             string NoTmp = string.Empty;
             string LavaTmp = "Lava00_v";
@@ -209,7 +211,7 @@ namespace J3D_Template_Model_Generator.FileSys
                 Folder_Selection_By_User();
                 //フォルダの作成&チェック
                 fc.Set_Folder();
-                mes.sysmes(1);
+                //mes.sysmes(1);
             }
             //「いいえ」の場合
             else if (result == DialogResult.No)

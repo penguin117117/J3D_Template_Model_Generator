@@ -8,41 +8,43 @@ using System.Windows.Forms;
 
 namespace J3D_Template_Model_Generator.FileSys
 {
-    public class Language
+    public class FormObjControlToTranslate
     {
         //トップメニュー
-        public static ToolStripMenuItem tsfile = Form1.Form1Instance.ファイルToolStripMenuItem;
-        public static ToolStripMenuItem tsopen = Form1.Form1Instance.開くToolStripMenuItem;
-        public static ToolStripMenuItem tssave = Form1.Form1Instance.保存ToolStripMenuItem;
-        public static ToolStripMenuItem tsfoldercheck = Form1.Form1Instance.作業フォルダチェックToolStripMenuItem;
-        public static ToolStripMenuItem tsedit = Form1.Form1Instance.編集ToolStripMenuItem;
-        public static ToolStripMenuItem tsinfo = Form1.Form1Instance.情報ToolStripMenuItem;
+        protected static ToolStripMenuItem tsfile = Form1.Form1Instance.ファイルToolStripMenuItem;
+        protected static ToolStripMenuItem tsopen = Form1.Form1Instance.開くToolStripMenuItem;
+        protected static ToolStripMenuItem tssave = Form1.Form1Instance.保存ToolStripMenuItem;
+        protected static ToolStripMenuItem tsfoldercheck = Form1.Form1Instance.作業フォルダチェックToolStripMenuItem;
+        protected static ToolStripMenuItem tsedit = Form1.Form1Instance.編集ToolStripMenuItem;
+        protected static ToolStripMenuItem tsinfo = Form1.Form1Instance.情報ToolStripMenuItem;
         //ボトムメニュー
-        public static ToolStripStatusLabel ssstate1 = Form1.Form1Instance.toolStripStatusLabel1;
-        public static ToolStripStatusLabel ssstate2 = Form1.Form1Instance.toolStripStatusLabel1;
+        protected static ToolStripStatusLabel ssstate1 = Form1.Form1Instance.toolStripStatusLabel1;
+        protected static ToolStripStatusLabel ssstate2 = Form1.Form1Instance.toolStripStatusLabel1;
         //メインメニュー
-        public static GroupBox gp1 = Form1.Form1Instance.groupBox1;
-        public static Label lb1 = Form1.Form1Instance.label1;
-        public static Label lb2 = Form1.Form1Instance.label2;
-        public static Label lb3 = Form1.Form1Instance.label3;
-        public static Label lb4 = Form1.Form1Instance.label4;
-        public static Label lb5 = Form1.Form1Instance.label5;
-        public static Label CMD_Error = Form1.Form1Instance.label7;
-        public static Label need_mat = Form1.Form1Instance.label6;
-        public static Button BDL_Button = Form1.Form1Instance.GenerateBdl_Button;
-        public static Button ARC_Button = Form1.Form1Instance.ConvertArc_Button;
-        public static Button Col_Button = Form1.Form1Instance.button3;
-        public static Button Wh_Button = Form1.Form1Instance.button4;
-        public static CheckBox cb1 = Form1.Form1Instance.checkBox1;
-        public static CheckBox cb2 = Form1.Form1Instance.checkBox2;
-        public static CheckBox cb3 = Form1.Form1Instance.checkBox3;
-        public static ComboBox com1 = Form1.Form1Instance.comboBox1;
-        public static ComboBox com2 = Form1.Form1Instance.comboBox2;
+        protected static GroupBox gp1 = Form1.Form1Instance.groupBox1;
+        protected static Label lb1 = Form1.Form1Instance.label1;
+        protected static Label lb2 = Form1.Form1Instance.label2;
+        protected static Label lb3 = Form1.Form1Instance.label3;
+        protected static Label lb4 = Form1.Form1Instance.label4;
+        protected static Label lb5 = Form1.Form1Instance.label5;
+        protected static Label CMD_Error = Form1.Form1Instance.label7;
+        protected static Label need_mat = Form1.Form1Instance.label6;
+        protected static Button BDL_Button = Form1.Form1Instance.GenerateBdl_Button;
+        protected static Button ARC_Button = Form1.Form1Instance.ConvertArc_Button;
+        protected static Button Col_Button = Form1.Form1Instance.button3;
+        protected static Button Wh_Button = Form1.Form1Instance.button4;
+        protected static CheckBox cb1 = Form1.Form1Instance.checkBox1;
+        protected static CheckBox cb2 = Form1.Form1Instance.checkBox2;
+        protected static CheckBox cb3 = Form1.Form1Instance.checkBox3;
+        protected static ComboBox com1 = Form1.Form1Instance.comboBox1;
+        protected static ComboBox com2 = Form1.Form1Instance.comboBox2;
 
-        public static TextBox tx2 = Form1.Form1Instance.NeedMaterial;
-        public static ToolStripMenuItem setting_tsmi = Form1.Form1Instance.settingsToolStripMenuItem;
-        //public static ComboBox com3 = SettingsForm.SettingsFormInstance.comboBox3;
-
+        protected static TextBox tx2 = Form1.Form1Instance.NeedMaterial;
+        protected static ToolStripMenuItem setting_tsmi = Form1.Form1Instance.settingsToolStripMenuItem;
+        //protected static ComboBox com3 = SettingsForm.SettingsFormInstance.comboBox3;
+    }
+    public class Language : FormObjControlToTranslate
+    {
         public static void Form1_Translater() 
         {
 
@@ -50,19 +52,16 @@ namespace J3D_Template_Model_Generator.FileSys
             {
                 case "日本語":
                     JP();
-                    //com3.SelectedIndex = 0;
                     Properties.Settings.Default.LangageType = "日本語";
                     Properties.Settings.Default.Save();
                     break;
                 case "EN":
                     EN();
-                    //com3.SelectedIndex = 1;
                     Properties.Settings.Default.LangageType = "EN";
                     Properties.Settings.Default.Save();
                     break;
                 default:
                     EN();
-                    //com3.SelectedIndex = 1;
                     Properties.Settings.Default.LangageType = "EN";
                     Properties.Settings.Default.Save();
                     break;
@@ -72,10 +71,8 @@ namespace J3D_Template_Model_Generator.FileSys
 
         public static void JP() 
         {
-            string path = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
-            var test = File.ReadAllLines(path + "System\\BTK\\BTK_日本語_ComBoxText.dat");
             tsfile.Text = "ファイル";
-            tsopen.Text = "開く";
+            tsopen.Text = "保存先変更";
             tssave.Text = "保存(未実装)";
             tsfoldercheck.Text = "作業フォルダチェック";
             tsedit.Text = "編集";
@@ -95,31 +92,23 @@ namespace J3D_Template_Model_Generator.FileSys
             Wh_Button.Text = "ホワイトホール起動";
             cb2.Text = "CMDも起動(ホワイトホール)";
             cb3.Text = "任意のjsonを追加(上級者向け)";
+
+            //BTKComboBoxItem And Text
             com1.Items.Clear();
-            foreach (string combox1str in test) com1.Items.Add(combox1str);
-            //com1.Items.Add("なし");
-            //com1.Items.Add("溶岩");
-            //com1.Items.Add("水");
-            //com1.Items.Add("滝");
-            //com1.Items.Add("毒");
-            //com1.Items.Add("流砂");
-            //com1.Items.Add("流れる砂");
-            //com1.Items.Add("泥");
-            //com1.Items.Add("グライバード水");
+            foreach (string combox1str in SystemFileLoader.ComboxItem_JP) com1.Items.Add(combox1str);
+            com1.Text = "なし";
+
+            //BRKComboBoxItem And Text
             com2.Items.Clear();
             com2.Items.Add("なし");
             com2.Items.Add("フラッシュブラック");
-            com1.Text = "なし";
             com2.Text = "なし";
-            //tx2.Text = "なし";
         }
 
         public static void EN() 
         {
-            string path = Properties.Settings.Default.設定 + @"J3D_Template_Model_Generator\";
-            var test = File.ReadAllLines(path + "System\\BTK\\BTK_EN_ComBoxText.dat");
             tsfile.Text = "File";
-            tsopen.Text = "Open";
+            tsopen.Text = "Save Directory Change";
             tssave.Text = "Save(Unimplemented)";
             tsfoldercheck.Text = "Working folder check";
             tsedit.Text = "Edit";
@@ -139,23 +128,17 @@ namespace J3D_Template_Model_Generator.FileSys
             Wh_Button.Text = "Open Whitehole";
             cb2.Text = "Start CMD ";
             cb3.Text = "Add Any .Json File (Advanced)";
+
+            //BTKComboBoxItem And Text
             com1.Items.Clear();
-            foreach (string combox1str in test) com1.Items.Add(combox1str);
-            //com1.Items.Add("None");
-            //com1.Items.Add("Lava");
-            //com1.Items.Add("Water");
-            //com1.Items.Add("WaterFall");
-            //com1.Items.Add("Poison");
-            //com1.Items.Add("Quicksand");
-            //com1.Items.Add("Slipsand");
-            //com1.Items.Add("Mud");
-            //com1.Items.Add("GliderStarWater");
+            foreach (string combox1str in SystemFileLoader.ComboxItem_EN) com1.Items.Add(combox1str);
+            com1.Text = "None";
+
+            //BRKComboBoxItem And Text
             com2.Items.Clear();
             com2.Items.Add("None");
             com2.Items.Add("FlashBlack");
-            com1.Text = "None";
             com2.Text = "None";
-            //tx2.Text = "None";
         }
 
     }

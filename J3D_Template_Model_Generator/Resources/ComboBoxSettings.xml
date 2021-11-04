@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<BTK>
+    <Temp Name="None">
+        <JP>なし</JP>
+        <EN>None</EN>
+        <NeedMat></NeedMat>
+    </Temp>
+    <Temp Name="Lava_Temp">
+        <JP>溶岩</JP>
+        <EN>Lava</EN>
+        <NeedMat>Lava00_v</NeedMat>
+    </Temp>
+    <Temp Name="Water_Temp">
+        <JP>水</JP>
+        <EN>Water</EN>
+        <NeedMat>a_WaterBFMat,b_WaterMat</NeedMat>
+    </Temp>
+    <Temp Name="WaterFall_Temp">
+        <JP>滝</JP>
+        <EN>WaterFall</EN>
+        <NeedMat>FallMat_v,e_FallMat_v_x,d_FallAlfaMat_v_x</NeedMat>
+    </Temp>
+    <Temp Name="Poison_Temp">
+        <JP>毒</JP>
+        <EN>Poison</EN>
+        <NeedMat>Dark01_v</NeedMat>
+    </Temp>
+    <Temp Name="Quicksand_Temp">
+        <JP>流砂</JP>
+        <EN>Quicksand</EN>
+        <NeedMat>Sand00_v</NeedMat>
+    </Temp>
+    <Temp Name="Slipsand_Temp">
+        <JP>流れる砂</JP>
+        <EN>Slipsand</EN>
+        <NeedMat>SandRiver_v</NeedMat>
+    </Temp>
+    <Temp Name="Mud_Temp">
+        <JP>泥</JP>
+        <EN>Mud</EN>
+        <NeedMat>lambert16_v</NeedMat>
+    </Temp>
+    <Temp Name="GliderStarWater_Temp">
+        <JP>グライバード水</JP>
+        <EN>GliderStarWater</EN>
+        <NeedMat>WaterMat00_v_x</NeedMat>
+    </Temp>
+</BTK>

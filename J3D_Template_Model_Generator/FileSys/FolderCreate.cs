@@ -25,14 +25,14 @@ namespace J3D_Template_Model_Generator.FileSys
             }
             
         }
-        public static void Set_Folder()
+        public static void Set_Folder(bool ShowMessage = true)
         {
             //宣言配列を増やすとフォルダを増やせます
             string mainfilePath = Properties.Settings.Default.設定 + "\\" + "J3D_Template_Model_Generator";
             string[] sub_Tools = { "SuperBMD", "J3D_View" , "ARC_Tool" , "Collision_Tool", "Whitehole" };
             string[] sub_Models = {"FBX","OBJ","BDL_BMD"};
             string[] sub_Anm = { "BTK" , "BRK" };
-            string[] sub_dir = {"ARC","Collision" , "User_json"};
+            string[] sub_dir = {"ARC","Collision" , "User_json" , "System" };
             short fcount = 0;
 
             //リスト化
@@ -82,9 +82,11 @@ namespace J3D_Template_Model_Generator.FileSys
 
                 }
 
+                if (!ShowMessage) return;
                 //システムメッセージ
                 //ディレクトリを作成した時だけ表示
-                if (fcount>0) {
+                if (fcount>0) 
+                {
                     mes.sysmes(1);
                 }
                 else

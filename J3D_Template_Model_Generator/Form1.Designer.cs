@@ -36,6 +36,7 @@
             this.編集ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.作業フォルダチェックToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -60,7 +61,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.Debug = new System.Windows.Forms.Button();
-            this.情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -100,6 +100,7 @@
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
             this.保存ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.保存ToolStripMenuItem.Text = "Save (not working atm)";
+            this.保存ToolStripMenuItem.Visible = false;
             // 
             // 編集ToolStripMenuItem
             // 
@@ -112,7 +113,7 @@
             // 作業フォルダチェックToolStripMenuItem
             // 
             this.作業フォルダチェックToolStripMenuItem.Name = "作業フォルダチェックToolStripMenuItem";
-            this.作業フォルダチェックToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.作業フォルダチェックToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.作業フォルダチェックToolStripMenuItem.Text = "Folder Check";
             this.作業フォルダチェックToolStripMenuItem.Click += new System.EventHandler(this.作業フォルダチェックToolStripMenuItem_Click);
             // 
@@ -122,6 +123,13 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // 情報ToolStripMenuItem
+            // 
+            this.情報ToolStripMenuItem.Name = "情報ToolStripMenuItem";
+            this.情報ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.情報ToolStripMenuItem.Text = "情報";
+            this.情報ToolStripMenuItem.Click += new System.EventHandler(this.情報ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -386,13 +394,6 @@
             this.Debug.Text = "デバッグ";
             this.Debug.UseVisualStyleBackColor = true;
             this.Debug.Click += new System.EventHandler(this.Debug_Click);
-            // 
-            // 情報ToolStripMenuItem
-            // 
-            this.情報ToolStripMenuItem.Name = "情報ToolStripMenuItem";
-            this.情報ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.情報ToolStripMenuItem.Text = "情報";
-            this.情報ToolStripMenuItem.Click += new System.EventHandler(this.情報ToolStripMenuItem_Click);
             // 
             // Form1
             // 

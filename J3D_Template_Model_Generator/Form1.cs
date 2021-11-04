@@ -43,12 +43,13 @@ namespace J3D_Template_Model_Generator
             Form1 f = new Form1();
             Form1Instance = f;
             Form1Instance = this;
-            Language.Form1_Translater();
-
-
+            
             //ファイルパスクラスのインスタンス作成
             File_Path_Create_Working_Folder FPCW = new File_Path_Create_Working_Folder();
             FPCW.Processing_Form1_Load();
+            fc.Set_Folder(false);
+            SystemFileLoader.Xml();
+            Language.Form1_Translater();
 
             Debug.Visible = false;
         }
@@ -174,6 +175,7 @@ namespace J3D_Template_Model_Generator
         private void 作業フォルダチェックToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fc.Set_Folder();
+            SystemFileLoader.Xml();
         }
 
         private void BtkOrBrkComboBox_SelectedIndexChanged(object sender, EventArgs e)
